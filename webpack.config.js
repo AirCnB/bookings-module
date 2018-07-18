@@ -4,7 +4,7 @@ module.exports = {
   entry: './client/app.jsx',
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -13,11 +13,11 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          presets: ['env', 'react']
-        }
-      }
-    ]
+          presets: ['env', 'react'],
+        },
+      },
+    ],
   },
   mode: 'development',
-  watch: true
+  watch: true,
 };
