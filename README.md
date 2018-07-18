@@ -17,7 +17,9 @@
 
 ## Usage
 
-> Some usage instructions
+`npm start` to run server on localhost:3004
+
+`npm run dev:react` to build with webpack
 
 ## Requirements
 
