@@ -6,3 +6,17 @@ const db = mongoose.connection;
 db.on('error', () => {
   console.log('mongo connection error');
 });
+
+// create a schema for the calendar data
+let calendarSchema = mongoose.Schema({
+  nightlyRate: Number,
+  cleaningFee: Number,
+  serviceFee: Number,
+  occupancyFee: Number,
+  reviewCount: Number,
+  reviewAverage: Number,
+  reservedDates: [[Number]],
+});
+
+// create a model for the calendar schema
+let Calendar = mongoose.model('Calendar', calendarSchema);
