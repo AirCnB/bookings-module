@@ -22,3 +22,7 @@ let calendarSchema = mongoose.Schema({
 
 // create a model for the calendar schema
 let Calendar = mongoose.model('Calendar', calendarSchema);
+
+module.exports = {
+  Calendar,
+};
