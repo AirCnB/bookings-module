@@ -7,8 +7,8 @@ db.on('error', () => {
   console.log('mongo connection error');
 });
 
-// create a schema for the calendar data
-let calendarSchema = mongoose.Schema({
+// create a schema for the bookings data
+let bookingsSchema = mongoose.Schema({
   id: Number,
   minStay: Number,
   nightlyRate: Number,
@@ -20,9 +20,9 @@ let calendarSchema = mongoose.Schema({
   reservedDates: [[Number]],
 });
 
-// create a model for the calendar schema
-let Calendar = mongoose.model('Calendar', calendarSchema);
+// create a model for the bookings schema
+let Booking = mongoose.model('Booking', bookingsSchema);
 
 module.exports = {
-  Calendar,
+  Booking,
 };

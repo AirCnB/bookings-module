@@ -80,7 +80,7 @@ for (let row = 1; row < csvArray.length - 1; row++) {
   record.reservedDates = calendarArr;
 
   // clear out the database and add in new data
-  let cal = new db.Calendar(record);
+  let cal = new db.Booking(record);
   cal.save((error) => {
     if (error) {
       console.log(error);
