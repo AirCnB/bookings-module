@@ -9,6 +9,7 @@ db.on('error', () => {
 
 // create a schema for the calendar data
 let calendarSchema = mongoose.Schema({
+  id: Number,
   minStay: Number,
   nightlyRate: Number,
   cleaningFee: Number,

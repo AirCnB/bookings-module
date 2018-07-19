@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 // create headers
 const headers = ['nightlyRate', 'cleaningFee', 'serviceFee', 'occupancyFee', 'reviewCount', 'reviewAverage', 'reservedDates'];
 
@@ -22,3 +24,9 @@ const getCalendar = () => {
   return calendar;
 };
 
+fs.writeFileSync('data.csv', 'hello, this is a test \n second line', (error) => {
+  if (error) {
+    console.log('fs write file error', error);
+  }
+  console.log('The file has been saved');
+});
