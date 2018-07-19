@@ -1,4 +1,4 @@
-# AirCnB Calendar Service
+# AirCnB Booking Service
 
 > Project description
 
