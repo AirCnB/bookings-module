@@ -24,7 +24,34 @@ const getCalendar = () => {
   return calendar;
 };
 
-fs.writeFileSync('data.csv', 'hello, this is a test \n second line', (error) => {
+// build the csv file
+let csvString = '';
+
+// add headers
+csvString += headers.join(',') + '\n';
+
+// create rows
+for (let i = 0; i < 10; i++) {
+  let row = '';
+  // add nightlyRate
+  row += getNumInRange(10, 20) * 10 + ',';
+  // add cleaningFee
+  row += getNumInRange(5, 10) * 10 + ',';
+  // add serviceFee
+  row += getNumInRange(10, 20) * 10 + ',';
+  // add occupanyFee
+  row += getNumInRange(10, 20) * 10 + ',';
+  // add reviewCount
+  row += getNumInRange(10, 100) + ',';
+  // add reviewAverage
+  row += getNumInRange(10, 50) / 10 + ',';
+  // add reservedDates
+  row += JSON.stringify(getCalendar()) + ',';
+  row += '\n';
+  csvString += row;
+}
+
+fs.writeFile('data.csv', csvString, (error) => {
   if (error) {
     console.log('fs write file error', error);
   }
