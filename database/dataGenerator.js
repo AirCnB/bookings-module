@@ -32,7 +32,7 @@ let csvString = '';
 csvString += headers.join(',') + '\n';
 
 // create rows
-let count = 1;
+let count = 0;
 for (let i = 0; i < 100; i++) {
   let row = '';
   // add id

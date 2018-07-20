@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const db = require('../database/index.js');
 
 const app = express();
 const servicePort = 3004;
@@ -7,8 +8,13 @@ const servicePort = 3004;
 app.use('/aircnb/:id', express.static('./public'));
 
 app.get('/bookings/:id', (req, res) => {
-  console.log(req.params);
-  res.status(200).end();
+
+  // callback function to send data to client
+  const sendToClient = (data) => {
+    res.status(200).send(data);
+  }
+
+  db.getData(req.params.id, sendToClient);
 });
 
 app.listen(servicePort, () => {
