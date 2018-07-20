@@ -1,8 +1,39 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
 version: 2
 jobs:
   build:
+    # working_directory: ~/repo
     docker:
-      - image: circleci/node:latest-browsers
+      # specify the version you desire here
+      - image: circleci/node:7.10
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      - image: mongo:3.4.4
+
     steps:
       - checkout
-      - run: echo "hello world"
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@5'
+
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+
+      - run:
+          name: install-npm-wee
+          command: npm install
+
+      - save_cache:
+          key: dependency-cache-{{ checksum: "package.json" }}
+          paths:
+            - ./node_modules
+
+      - run:
+          name: test
+          command: npm test
+
