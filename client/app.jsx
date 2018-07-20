@@ -12,7 +12,11 @@ class App extends React.Component {
   }
 
   getBookingData(cb) {
-    axios.get('/bookings')
+    const REG_NUM = /\/(\d*)\//;
+    const url = window.location.pathname;
+    const route = '/bookings/' + url.match(REG_NUM)[1];
+
+    axios.get(route)
       .then((response) => {
         console.log(response);
       });

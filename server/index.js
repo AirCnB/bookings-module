@@ -8,7 +8,7 @@ app.use('/aircnb/:id', express.static('./public'));
 
 app.get('/bookings/:id', (req, res) => {
   console.log(req.params);
-  res.send(200).end();
+  res.status(200).end();
 });
 
 app.listen(servicePort, () => {
