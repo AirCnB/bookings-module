@@ -5,9 +5,9 @@ const db = require('../database/index.js');
 const app = express();
 const servicePort = 3004;
 
-app.use('/aircnb/:id', express.static('./public'));
+app.use('/listings/:id', express.static('./public'));
 
-app.get('/bookings/:id', (req, res) => {
+app.get('/listings/:id/bookings', (req, res) => {
 
   // callback function to send data to client
   const sendToClient = (data) => {
