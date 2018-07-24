@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import { Pricing } from './pricing.js';
+import { Dates } from './dates.js';
+import { Guests } from './guests.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +30,7 @@ class App extends React.Component {
     return (
       <div>
         <Pricing />
+        <Dates />
       </div>
     );
   }
