@@ -8,7 +8,7 @@ db.on('error', () => {
 });
 
 // create a schema for the bookings data
-let bookingsSchema = mongoose.Schema({
+const bookingsSchema = mongoose.Schema({
   id: Number,
   minStay: Number,
   nightlyRate: Number,
@@ -17,7 +17,7 @@ let bookingsSchema = mongoose.Schema({
   occupancyFee: Number,
   reviewCount: Number,
   reviewAverage: Number,
-  reservedDates: [[Number]],
+  reservedDates: [Date],
 });
 
 // create a model for the bookings schema
