@@ -31,6 +31,8 @@ class App extends React.Component {
       <div>
         <Pricing />
         <Dates />
+        <Guests />
+        <button type="button">Request to Book</button>
       </div>
     );
   }
