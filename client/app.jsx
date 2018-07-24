@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Pricing } from './pricing.js';
 import { Dates } from './dates.js';
 import { Guests } from './guests.js';
+import { Summary } from './summary.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class App extends React.Component {
         <Pricing />
         <Dates />
         <Guests />
+        <Summary />
         <button type="button">Request to Book</button>
       </div>
     );
