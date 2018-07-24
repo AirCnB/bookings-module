@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Pricing = () => {
+const Pricing = ({nightlyRate}) => {
   return (
     <div>
-      $100 per night
-      <br />
-      ★★★★★ 200
+      <div id="nightly-rate">
+        ${nightlyRate} per night
+      </div>
+      <div id="average-rating">
+        ★★★★★ 200
+      </div>
     </div>
   );
 };

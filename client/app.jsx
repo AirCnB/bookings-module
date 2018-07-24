@@ -10,6 +10,9 @@ import { Summary } from './summary.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      bookingData: {},
+    };
   }
 
   componentDidMount() {
@@ -23,6 +26,10 @@ class App extends React.Component {
 
     axios.get(route)
       .then((response) => {
+        console.log(this);
+        this.setState({
+          bookingData: response.data
+        });
         console.log(response);
       });
   }
@@ -30,7 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Pricing />
+        <Pricing nightlyRate={this.state.bookingData.nightlyRate} bookingData={this.state.bookingData}/>
         <Dates />
         <Guests />
         <Summary />
