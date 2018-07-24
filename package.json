@@ -11,10 +11,10 @@
     "start": "nodemon server/index.js",
     "dev:react": "webpack",
     "lint": "eslint . --ext .jsx --ext .js",
-    "test": "jest",
     "build:data": "node database/dataGenerator",
     "seed:db": "node database/dataSeeder",
-    "serve": "grunt deploy"
+    "serve": "grunt deploy",
+    "test": "jest --coverage"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -29,7 +29,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "style-loader": "^0.21.0"
+    "style-loader": "^0.21.0",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
