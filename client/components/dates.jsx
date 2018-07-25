@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from '../styles/dates.css'
+
 const Dates = () => {
   return (
-    <div>
+    <div className={styles.container}>
       Dates
       <br />
       <input type="text" name="checkin" placeholder="Check In" />
