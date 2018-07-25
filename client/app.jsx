@@ -35,9 +35,14 @@ class App extends React.Component {
   }
 
   render() {
+    const { nightlyRate, reviewAverage, reviewCount } = this.state.bookingData;
     return (
       <div>
-        <Pricing nightlyRate={this.state.bookingData.nightlyRate} bookingData={this.state.bookingData}/>
+        <Pricing
+          nightlyRate={nightlyRate}
+          reviewAverage={reviewAverage}
+          reviewCount={reviewCount}
+        />
         <Dates />
         <Guests />
         <Summary />
