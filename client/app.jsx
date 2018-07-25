@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-import { Pricing } from './pricing.js';
-import { Dates } from './dates.js';
-import { Guests } from './guests.js';
-import { Summary } from './summary.js';
+import { Pricing } from './components/pricing.jsx';
+import { Dates } from './components/dates.jsx';
+import { Guests } from './components/guests.jsx';
+import { Summary } from './components/summary.jsx';
 
 class App extends React.Component {
   constructor(props) {
