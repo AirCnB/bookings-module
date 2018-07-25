@@ -7,6 +7,8 @@ import { Dates } from './components/dates.jsx';
 import { Guests } from './components/guests.jsx';
 import { Summary } from './components/summary.jsx';
 
+import styles from './styles/app.css';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,6 @@ class App extends React.Component {
 
     axios.get(route)
       .then((response) => {
-        console.log(this);
         this.setState({
           bookingData: response.data
         });
@@ -37,7 +38,7 @@ class App extends React.Component {
   render() {
     const { nightlyRate, reviewAverage, reviewCount } = this.state.bookingData;
     return (
-      <div>
+      <div className={styles.container}>
         <Pricing
           nightlyRate={nightlyRate}
           reviewAverage={reviewAverage}
