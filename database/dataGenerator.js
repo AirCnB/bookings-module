@@ -76,8 +76,6 @@ for (let row = 1; row < csvArray.length - 1; row++) {
 
   // special logic just for the calendar
   let calendar = csvRow.slice(csvRow.indexOf('['), csvRow.length - 2);
-  // console.log('calendar', calendar);
-  // console.log('--------');
   let calendarArr = JSON.parse(calendar);
   record.reservedDates = calendarArr;
 
