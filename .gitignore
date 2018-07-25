@@ -24,4 +24,5 @@ coverage
 build/
 dist/
 public/bundle.js
+public/bundle.js.map
 
