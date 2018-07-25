@@ -9,20 +9,20 @@ const getNumInRange = (lower, upper) => {
   return Math.floor(Math.random() * (upper - lower)) + lower;
 };
 
-// TODO: use more realistic data (add random ranges of dates)
+const randomDate = (start, end) => {
+  const startTime = start.getTime();
+  const endTime = end.getTime();
+  const randomTime = startTime + ((endTime - startTime) * Math.random());
+  return new Date(randomTime);
+};
+
 const getCalendar = () => {
   const calendar = [];
-  const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  for (let month of months) {
-    const days = [];
-    for (let i = 1; i <= month; i += 1) {
-      if (getNumInRange(1, 10) < 3) {
-        days.push(i);
-      }
-    }
-    calendar.push(days);
+  for (let i = 0; i < 50; i++) {
+    let newDate = randomDate(new Date(), new Date(2019, 1, 15))
+    calendar.push(newDate);
   }
-  return calendar;
+  return calendar.sort((a, b) => a - b);
 };
 
 // build the csv file
@@ -75,7 +75,9 @@ for (let row = 1; row < csvArray.length - 1; row++) {
   }
 
   // special logic just for the calendar
-  let calendar = csvRow.slice(csvRow.indexOf('[['), csvRow.length - 2);
+  let calendar = csvRow.slice(csvRow.indexOf('['), csvRow.length - 2);
+  // console.log('calendar', calendar);
+  // console.log('--------');
   let calendarArr = JSON.parse(calendar);
   record.reservedDates = calendarArr;
 
