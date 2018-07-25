@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from '../styles/pricing.css';
+
 const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
   return (
-    <div>
+    <div className={styles.container}>
       <div id="nightly-rate">
         ${nightlyRate} per night
       </div>
