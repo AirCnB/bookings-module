@@ -11,17 +11,15 @@
 }
 
 .button {
-  font-size: 8px;
+  border: 1px solid #008489;
   border-radius: 50%;
-  height: 20px;
+  color: #008489;
+  font-size: 12px;
+  height: 30px;
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
-  width: 20px;
-}
-
-.category {
-  display: inline-block;
+  width: 30px;
 }
 
 .gridContainer {
@@ -44,6 +42,11 @@
 .label {
   font-size: 14px;
   font-weight: 200;
+}
+
+.footer {
+  composes: label;
+  margin-top: 20px;
 }
 
 .textButton {
