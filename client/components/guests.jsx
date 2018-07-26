@@ -8,41 +8,56 @@ class Guests extends React.Component {
     super(props);
     this.state = {
       showDropdown: false,
+      adultCount: 1,
+      childrenCount: 0,
       guestCount: 1,
     };
     this.toggleDropdown = this.toggleDropdown.bind(this);
-    this.incrementGuestCount = this.incrementGuestCount.bind(this);
-    this.decrementGuestCount = this.decrementGuestCount.bind(this);
+    this.incrementChildrenCount = this.incrementChildrenCount.bind(this);
+    this.decrementChildrenCount = this.decrementChildrenCount.bind(this);
+    this.decrementAdultCount = this.decrementAdultCount.bind(this);
+    this.incrementAdultCount = this.incrementAdultCount.bind(this);
   }
 
   toggleDropdown() {
     this.setState(prevState => ({ showDropdown: !prevState.showDropdown }));
   }
 
-  decrementGuestCount() {
-    this.setState(prevState => ({ guestCount: prevState.guestCount - 1 }));
+  decrementChildrenCount() {
+    this.setState(prevState => ({ childrenCount: prevState.childrenCount - 1 }));
   }
 
-  incrementGuestCount() {
-    this.setState(prevState => ({ guestCount: prevState.guestCount + 1 }));
+  incrementChildrenCount() {
+    this.setState(prevState => ({ childrenCount: prevState.childrenCount + 1 }));
+  }
+
+  decrementAdultCount() {
+    this.setState(prevState => ({ adultCount: prevState.adultCount - 1 }));
+  }
+
+  incrementAdultCount() {
+    this.setState(prevState => ({ adultCount: prevState.adultCount + 1 }));
   }
 
   render() {
-    const { guestCount, showDropdown } = this.state;
+    const { adultCount, childrenCount, guestCount, showDropdown } = this.state;
     return (
       <div className={styles.dropdown}>
         <div id="guests-label">
           <span className={styles.label}>Guests</span>
         </div>
         <button className={styles.button} onClick={this.toggleDropdown} type="button">
-          {guestCount} guest
+          {adultCount + childrenCount} guest
         </button>
         {showDropdown
           ? (
             <GuestsDropdown
-              increment={this.incrementGuestCount}
-              decrement={this.decrementGuestCount}
-              count={guestCount}
+              incrementAdult={this.incrementAdultCount}
+              decrementAdult={this.decrementAdultCount}
+              incrementChild={this.incrementChildrenCount}
+              decrementChild={this.decrementChildrenCount}
+              adultCount={adultCount}
+              childrenCount={childrenCount}
             />
           )
           : null}
