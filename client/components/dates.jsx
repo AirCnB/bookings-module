@@ -5,11 +5,24 @@ import styles from '../styles/dates.css'
 const Dates = () => {
   return (
     <div className={styles.container}>
-      Dates
-      <br />
-      <input type="text" name="checkin" placeholder="Check In" />
-      →
-      <input type="text" name="checkout" placeholder="Check out" />
+      <div id="dates-label">
+        <span className={styles.label}>Dates</span>
+      </div>
+      <div className={styles.inputContainer}>
+        <div id="checkin-box">
+          <input className={styles.inputBox} 
+            type="text"
+            name="checkin"
+            placeholder="Check In"
+          />
+          ➝
+          <input className={styles.inputBox} 
+            type="text"
+            name="checkout"
+            placeholder="Check Out"
+          />
+        </div>
+      </div>
     </div>
   );
 };
