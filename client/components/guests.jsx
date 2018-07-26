@@ -29,12 +29,4 @@ class Guests extends React.Component {
   }
 }
 
-const ListItem = () => {
-  return (
-    <div>
-      adsf
-    </div>
-  );
-};
-
 module.exports.Guests = Guests;
