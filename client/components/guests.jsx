@@ -1,5 +1,6 @@
 import React from 'react';
 
+import GuestsDropdown from './guestsDropdown.jsx';
 import styles from '../styles/guests.css';
 
 class Guests extends React.Component {
@@ -16,21 +17,13 @@ class Guests extends React.Component {
   }
 
   render() {
-    let dropdown = (
-      <div id="dropdown-content" className={styles.dropdownContent}>
-        <div>Adults</div>
-        <div>Children</div>
-        <div>Infants</div>
-      </div>
-    );
-
     return (
       <div className={styles.dropdown}>
         <div id="guests-label">
           <span className={styles.label}>Guests</span>
         </div>
         <button onClick={this.toggleDropdown} className={styles.button} type="button">1 guest</button>
-        {this.state.showDropdown ? dropdown : null}
+        {this.state.showDropdown ? <GuestsDropdown /> : null}
       </div>
     );
   }
