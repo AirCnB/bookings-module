@@ -11,12 +11,15 @@ class Guests extends React.Component {
       adultCount: 1,
       childrenCount: 0,
       guestCount: 1,
+      infantCount: 0,
     };
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.incrementChildrenCount = this.incrementChildrenCount.bind(this);
     this.decrementChildrenCount = this.decrementChildrenCount.bind(this);
     this.decrementAdultCount = this.decrementAdultCount.bind(this);
     this.incrementAdultCount = this.incrementAdultCount.bind(this);
+    this.decrementInfantCount = this.decrementInfantCount.bind(this);
+    this.incrementInfantCount = this.incrementInfantCount.bind(this);
   }
 
   toggleDropdown() {
@@ -39,8 +42,16 @@ class Guests extends React.Component {
     this.setState(prevState => ({ adultCount: prevState.adultCount + 1 }));
   }
 
+  decrementInfantCount() {
+    this.setState(prevState => ({ infantCount: prevState.infantCount - 1 }));
+  }
+
+  incrementInfantCount() {
+    this.setState(prevState => ({ infantCount: prevState.infantCount + 1 }));
+  }
+
   render() {
-    const { adultCount, childrenCount, guestCount, showDropdown } = this.state;
+    const { adultCount, childrenCount, guestCount, infantCount, showDropdown } = this.state;
     return (
       <div className={styles.dropdown}>
         <div id="guests-label">
@@ -55,8 +66,11 @@ class Guests extends React.Component {
             decrementAdult={this.decrementAdultCount}
             incrementChild={this.incrementChildrenCount}
             decrementChild={this.decrementChildrenCount}
+            incrementInfant={this.incrementInfantCount}
+            decrementInfant={this.decrementInfantCount}
             adultCount={adultCount}
             childrenCount={childrenCount}
+            infantCount={infantCount}
           />
         )}
       </div>
