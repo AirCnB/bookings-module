@@ -5,6 +5,7 @@
   background-color: white;
   display: block;
   font-size: 16px;
+  padding: 16px 16px 16px 16px;
   position: absolute;
   width: 100% - 1px;
 }
@@ -24,8 +25,29 @@
 }
 
 .gridContainer {
+  align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px 50px 50x;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
+  grid-template-rows: 50px 50px 50px;
+  justify-items: center;
 }
 
+.left {
+  justify-self: start
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.textButton {
+  color: #008489;
+  cursor: pointer;
+  float: right;
+}
