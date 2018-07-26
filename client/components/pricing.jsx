@@ -6,10 +6,12 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
   return (
     <div className={styles.container}>
       <div id="nightly-rate">
-        ${nightlyRate} per night
+        <span className={styles.rate}>${nightlyRate}</span>
+        <span className={styles.label}>per night</span>
       </div>
       <div id="rating">
-        ★★★★★ {reviewCount}
+        <span className={styles.stars}>★★★★★</span>
+        <span className={styles.label}>{reviewCount}</span>
       </div>
     </div>
   );

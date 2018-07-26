@@ -2,3 +2,19 @@
   padding-bottom: 15px;
   border-bottom: 1px solid #DBDBDB;
 }
+
+.rate {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.label {
+  color: #484848;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 3px;
+}
+
+.stars {
+  color: #008489;
+}
