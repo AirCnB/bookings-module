@@ -49,18 +49,16 @@ class Guests extends React.Component {
         <button className={styles.button} onClick={this.toggleDropdown} type="button">
           {adultCount + childrenCount} guest
         </button>
-        {showDropdown
-          ? (
-            <GuestsDropdown
-              incrementAdult={this.incrementAdultCount}
-              decrementAdult={this.decrementAdultCount}
-              incrementChild={this.incrementChildrenCount}
-              decrementChild={this.decrementChildrenCount}
-              adultCount={adultCount}
-              childrenCount={childrenCount}
-            />
-          )
-          : null}
+        {showDropdown && (
+          <GuestsDropdown
+            incrementAdult={this.incrementAdultCount}
+            decrementAdult={this.decrementAdultCount}
+            incrementChild={this.incrementChildrenCount}
+            decrementChild={this.decrementChildrenCount}
+            adultCount={adultCount}
+            childrenCount={childrenCount}
+          />
+        )}
       </div>
     );
   }
