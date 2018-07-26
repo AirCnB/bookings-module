@@ -14,6 +14,7 @@ class Guests extends React.Component {
       infantCount: 0,
     };
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.hideDropdown = this.hideDropdown.bind(this);
     this.incrementChildrenCount = this.incrementChildrenCount.bind(this);
     this.decrementChildrenCount = this.decrementChildrenCount.bind(this);
     this.decrementAdultCount = this.decrementAdultCount.bind(this);
@@ -24,6 +25,12 @@ class Guests extends React.Component {
 
   toggleDropdown() {
     this.setState(prevState => ({ showDropdown: !prevState.showDropdown }));
+  }
+
+  hideDropdown() {
+    this.setState({
+      showDropdown: false,
+    });
   }
 
   decrementChildrenCount() {
@@ -71,6 +78,7 @@ class Guests extends React.Component {
             adultCount={adultCount}
             childrenCount={childrenCount}
             infantCount={infantCount}
+            hideDropdown={this.hideDropdown}
           />
         )}
       </div>

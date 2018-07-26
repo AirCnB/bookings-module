@@ -12,6 +12,7 @@ const GuestsDropdown = ({
   incrementInfant,
   decrementInfant,
   infantCount,
+  hideDropdown,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -41,7 +42,7 @@ const GuestsDropdown = ({
         <button type="button" className={styles.button} onClick={incrementInfant}>+</button>
       </div>
       <div className={styles.footer}>5 guests maximum. Infants don't count toward the number of guests</div>
-      <div className={styles.textButton}>Close</div>
+      <div className={styles.textButton} onClick={hideDropdown}>Close</div>
     </div>
   );
 };
