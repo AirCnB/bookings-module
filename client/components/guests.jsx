@@ -28,18 +28,21 @@ class Guests extends React.Component {
   }
 
   render() {
+    const { guestCount, showDropdown } = this.state;
     return (
       <div className={styles.dropdown}>
         <div id="guests-label">
           <span className={styles.label}>Guests</span>
         </div>
-        <button onClick={this.toggleDropdown} className={styles.button} type="button">1 guest</button>
-        {this.state.showDropdown
+        <button className={styles.button} onClick={this.toggleDropdown} type="button">
+          {guestCount} guest
+        </button>
+        {showDropdown
           ? (
             <GuestsDropdown
               increment={this.incrementGuestCount}
               decrement={this.decrementGuestCount}
-              count={this.state.guestCount}
+              count={guestCount}
             />
           )
           : null}

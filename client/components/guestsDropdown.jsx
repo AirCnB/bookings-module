@@ -2,16 +2,16 @@ import React from 'react';
 
 import styles from '../styles/guestsDropdown.css';
 
-const GuestsDropdown = (props) => {
+const GuestsDropdown = ({ decrement, increment, count }) => {
   return (
     <div className={styles.wrapper}>
       <div>
         <div>
           <div className={styles.category}>Adults</div>
           <div className={styles.category}>
-            <button className={styles.button} onClick={props.decrement}>-</button>
-            <span>{props.count}</span>
-            <button className={styles.button} onClick={props.increment}>+</button>
+            <button type="button" className={styles.button} onClick={decrement}>-</button>
+            <span>{count}</span>
+            <button type="button" className={styles.button} onClick={increment}>+</button>
           </div>
         </div>
         <div>Children</div>
