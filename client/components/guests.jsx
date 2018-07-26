@@ -15,10 +15,10 @@ class Guests extends React.Component {
     };
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.hideDropdown = this.hideDropdown.bind(this);
-    this.incrementChildrenCount = this.incrementChildrenCount.bind(this);
-    this.decrementChildrenCount = this.decrementChildrenCount.bind(this);
     this.decrementAdultCount = this.decrementAdultCount.bind(this);
     this.incrementAdultCount = this.incrementAdultCount.bind(this);
+    this.decrementChildrenCount = this.decrementChildrenCount.bind(this);
+    this.incrementChildrenCount = this.incrementChildrenCount.bind(this);
     this.decrementInfantCount = this.decrementInfantCount.bind(this);
     this.incrementInfantCount = this.incrementInfantCount.bind(this);
   }
