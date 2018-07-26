@@ -1,0 +1,30 @@
+.button {
+  border: 1px solid #E4E4E4;
+  color: #484848;
+  font-size: 17px;
+  height: 40px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: left;
+  width: 300px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.label {
+  composes: label from './dates.css'
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownContent {
+  border: 1px solid #E4E4E4;
+  background-color: white;
+  display: block;
+  position: absolute;
+  width: 100%;
+}
