@@ -18,7 +18,7 @@ const randomDate = (start, end) => {
 
 const getCalendar = () => {
   const calendar = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 50; i += 1) {
     let newDate = randomDate(new Date(), new Date(2019, 1, 15))
     calendar.push(newDate);
   }
@@ -33,7 +33,7 @@ csvString += headers.join(',') + '\n';
 
 // create rows
 let count = 0;
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 100; i += 1) {
   let row = '';
   // add id
   row += count++ + ',';
@@ -64,13 +64,13 @@ fs.writeFile('data.csv', csvString, (error) => {
 
 // create an object for every row in the csv string
 const csvArray = csvString.split('\n');
-for (let row = 1; row < csvArray.length - 1; row++) {
+for (let row = 1; row < csvArray.length - 1; row += 1) {
   let csvRow = csvArray[row];
   let dataArr = csvRow.split(',');
   let record = {};
 
   // keys for everything except the calendar
-  for (let i = 0; i < headers.length - 1; i++) {
+  for (let i = 0; i < headers.length - 1; i += 1) {
     record[headers[i]] = dataArr[i];
   }
 
