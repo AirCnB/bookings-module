@@ -1,6 +1,7 @@
 import React from 'react';
 
-import styles from '../styles/dates.css'
+import Calendar from './calendar.jsx';
+import styles from '../styles/dates.css';
 
 const Dates = () => {
   return (
@@ -10,19 +11,22 @@ const Dates = () => {
       </div>
       <div className={styles.inputContainer}>
         <div id="checkin-box">
-          <input className={styles.inputBox} 
+          <input
+            className={styles.inputBox}
             type="text"
             name="checkin"
             placeholder="Check In"
           />
           ➝
-          <input className={styles.inputBox} 
+          <input
+            className={styles.inputBox}
             type="text"
             name="checkout"
             placeholder="Check Out"
           />
         </div>
       </div>
+      <Calendar />
     </div>
   );
 };
