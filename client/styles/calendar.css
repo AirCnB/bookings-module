@@ -8,6 +8,16 @@
   z-index: 2;
 }
 
+.table {
+  width: 100%;
+}
+
+.cell {
+  border: 1px solid black;
+  text-align: center;
+  height: 32px;
+}
+
 .title {
   font-size: 18px;
   font-weight: 700;
