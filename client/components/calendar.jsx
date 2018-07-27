@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import styles from '../styles/calendar.css';
 
@@ -11,20 +12,14 @@ class Calendar extends React.Component {
     this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   }
 
+  renderTitle() {
+    return <span>{moment().format('MMMM YYYY')}</span>;
+  }
+
   render() {
     return (
       <div className={styles.wrapper} id="calendar">
-        <tbody className={styles.table}>
-          <tr className={styles.table}>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-        </tbody>
+        {this.renderTitle()}
       </div>
     );
   }
