@@ -53,9 +53,38 @@ class Calendar extends React.Component {
     const firstDayIndex = month.startOf('month').day();
     const daysInMonth = month.daysInMonth();
 
-
-
     console.log(firstDayIndex, daysInMonth);
+
+    const maxWeeks = Math.ceil((firstDayIndex + daysInMonth) / 7);
+
+    const calendar = [];
+    for (let i = 0; i < maxWeeks; i += 1) {
+      let weekArr = [];
+      for (let j = 0; j < 7; j += 1) {
+        weekArr.push(j);
+      }
+      calendar.push(weekArr);
+    }
+
+    return (
+      <table>
+        <tbody>
+          {calendar.map((week => {
+            return (
+              <tr>
+                {week.map((day, i) => {
+                  return (
+                    <td key={i}>{day}</td>
+                  );
+                })}
+              </tr>
+            )
+          }))}
+        </tbody>
+      </table>
+    );
+
+
   }
 
   render() {
