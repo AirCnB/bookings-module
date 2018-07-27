@@ -1,7 +1,8 @@
 import React from 'react';
 
-class Calendar extends React.Component {
+import styles from '../styles/calendar.css';
 
+class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,8 +13,18 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div id="calendar">
-        calendar
+      <div className={styles.wrapper} id="calendar">
+        <tbody className={styles.table}>
+          <tr className={styles.table}>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </tbody>
       </div>
     );
   }

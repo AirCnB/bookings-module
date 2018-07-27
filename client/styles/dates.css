@@ -1,6 +1,7 @@
 .container {
   margin-top: 10px;
   padding-bottom: 15px;
+  position: relative;
 }
 
 .label {
