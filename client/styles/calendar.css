@@ -27,6 +27,21 @@
   width: 32px;
 }
 
+.header {
+  display: table;
+  margin-top: 20px;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.header span {
+  display: table-cell;
+  color: #757575;
+  font-size: 12px;
+  font-weight: 200;
+  text-align: center;
+}
+
 .button:hover {
   border: 1px solid #cccccc;
 }
