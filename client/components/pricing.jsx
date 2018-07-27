@@ -17,4 +17,4 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
   );
 };
 
-module.exports.Pricing = Pricing;
+export default Pricing;
