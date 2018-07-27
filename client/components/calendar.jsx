@@ -77,11 +77,21 @@ class Calendar extends React.Component {
         <tbody>
           {calendar.map((week, i) => (
             <tr key={i}>
-              {week.map((date, j) => (
-                <td className={(date in this.invalids) ? styles.invalid : styles.cell} key={`${i}${j}`}>
-                  {date}
-                </td>
-              ))}
+              {week.map((date, j) => {
+                let cellStyle;
+                if (date === '') {
+                  cellStyle = styles.emptyCell;
+                } else if (date in this.invalids) {
+                  cellStyle = styles.invalidCell;
+                } else {
+                  cellStyle = styles.cell;
+                }
+                return (
+                  <td className={cellStyle} key={`${i}${j}`}>
+                    {date}
+                  </td>
+                );
+              })}
             </tr>
           ))}
         </tbody>
