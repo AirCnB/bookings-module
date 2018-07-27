@@ -52,11 +52,11 @@ class Calendar extends React.Component {
     const DAYS_IN_WEEK = 7;
     const firstDayIndex = month.startOf('month').day();
     const daysInMonth = month.daysInMonth();
-    const maxWeeks = Math.ceil((firstDayIndex + daysInMonth) / 7);
+    const maxWeek = Math.ceil((firstDayIndex + daysInMonth) / 7);
 
     const calendar = [];
     let day = 1 - firstDayIndex;
-    for (let row = 0; row < maxWeeks; row += 1) {
+    for (let row = 0; row < maxWeek; row += 1) {
       const week = [];
       for (let col = 0; col < DAYS_IN_WEEK; col += 1) {
         week.push((day >= 1 && day <= daysInMonth) ? day : '');
@@ -72,26 +72,26 @@ class Calendar extends React.Component {
       }
     }
 
+    const getCellStyle = (date) => {
+      if (date === '') {
+        return styles.emptyCell;
+      }
+      if (date in this.invalids) {
+        return styles.invalidCell;
+      }
+      return styles.cell;
+    }
+
     return (
       <table className={styles.table}>
         <tbody>
           {calendar.map((week, i) => (
             <tr key={i}>
-              {week.map((date, j) => {
-                let cellStyle;
-                if (date === '') {
-                  cellStyle = styles.emptyCell;
-                } else if (date in this.invalids) {
-                  cellStyle = styles.invalidCell;
-                } else {
-                  cellStyle = styles.cell;
-                }
-                return (
-                  <td className={cellStyle} key={`${i}${j}`}>
-                    {date}
-                  </td>
-                );
-              })}
+              {week.map((date, j) => (
+                <td className={getCellStyle(date)} key={`${i}${j}`}>
+                  {date}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>
