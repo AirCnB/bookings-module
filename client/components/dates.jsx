@@ -9,9 +9,25 @@ class Dates extends React.Component {
     this.state = {
       showCalendar: false,
     };
+    this.showCalendar = this.showCalendar.bind(this);
+    this.hideCalendar = this.hideCalendar.bind(this);
   }
 
+  showCalendar() {
+    this.setState({
+      showCalendar: true,
+    });
+  }
+
+  hideCalendar() {
+    this.setState({
+      showCalendar: false,
+    });
+  }
+
+
   render() {
+    const { showCalendar } = this.state;
     return (
       <div className={styles.container}>
         <div id="dates-label">
@@ -21,6 +37,7 @@ class Dates extends React.Component {
           <div id="checkin-box">
             <input
               className={styles.inputBox}
+              onFocus={this.showCalendar}
               type="text"
               name="checkin"
               placeholder="Check In"
@@ -28,13 +45,14 @@ class Dates extends React.Component {
             ➝
             <input
               className={styles.inputBox}
+              onFocus={this.showCalendar}
               type="text"
               name="checkout"
               placeholder="Check Out"
             />
           </div>
         </div>
-        <Calendar />
+        {showCalendar && <Calendar />}
       </div>
     );
   }

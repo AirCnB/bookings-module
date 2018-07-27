@@ -1,5 +1,22 @@
 .wrapper {
-
+  border: 1px solid #E4E4E4;
+  background-color: white;
+  display: block;
+  padding: 16px 16px 16px 16px;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
 }
 
+.table {
+  display: table;
+  width: 100%;
+}
 
+td {
+  font-size: 14px;
+  height: 32px;
+  border: 1px solid black;
+  width: 32px;
+  text-align: center;
+}
