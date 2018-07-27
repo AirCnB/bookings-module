@@ -25,6 +25,11 @@
   background-color: #E4E7E7;
 }
 
+.invalid {
+  composes: cell;
+  color: red;
+}
+
 .title {
   font-size: 18px;
   font-weight: 700;

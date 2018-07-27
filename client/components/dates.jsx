@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import Calendar from './calendar';
 import styles from '../styles/dates.css';
@@ -25,9 +26,12 @@ class Dates extends React.Component {
     });
   }
 
-
   render() {
     const { showCalendar } = this.state;
+    const { reservedDates } = this.props;
+
+    const dates = (reservedDates || []).map(date => moment(date));
+
     return (
       <div className={styles.container}>
         <div id="dates-label">
@@ -52,7 +56,7 @@ class Dates extends React.Component {
             />
           </div>
         </div>
-        {showCalendar && <Calendar />}
+        {showCalendar && <Calendar reservedDates={dates} />}
       </div>
     );
   }

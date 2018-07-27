@@ -65,13 +65,20 @@ class Calendar extends React.Component {
       calendar.push(week);
     }
 
+    this.invalids = {};
+    for (let date of this.props.reservedDates) {
+      if (date.month() === this.state.month.month()) {
+        this.invalids[date.date()] = true;
+      }
+    }
+
     return (
       <table className={styles.table}>
         <tbody>
           {calendar.map((week, i) => (
             <tr key={i}>
               {week.map((date, j) => (
-                <td className={styles.cell} key={`${i}${j}`}>
+                <td className={(date in this.invalids) ? styles.invalid : styles.cell} key={`${i}${j}`}>
                   {date}
                 </td>
               ))}
