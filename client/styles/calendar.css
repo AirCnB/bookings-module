@@ -26,14 +26,24 @@
   background-color: #E4E7E7;
 }
 
-.invalid {
+.emptyCell {
+  composes: cell;
+  border: none;
+}
+
+.emptyCell:hover {
+  background-color: white;
+  cursor: default;
+}
+
+.invalidCell {
   composes: cell;
   color: #E4E7E7;
   cursor: default;
   text-decoration: line-through;
 }
 
-.invalid:hover {
+.invalidCell:hover {
   background-color: white;
 }
 
