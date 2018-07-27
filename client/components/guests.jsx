@@ -86,4 +86,4 @@ class Guests extends React.Component {
   }
 }
 
-module.exports.Guests = Guests;
+export default Guests;

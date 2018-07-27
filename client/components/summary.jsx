@@ -22,4 +22,4 @@ const Summary = () => {
   );
 };
 
-module.exports.Summary = Summary;
+export default Summary;

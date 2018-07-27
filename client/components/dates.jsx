@@ -58,4 +58,4 @@ class Dates extends React.Component {
   }
 }
 
-module.exports.Dates = Dates;
+export default Dates;
