@@ -11,7 +11,6 @@ class Calendar extends React.Component {
     };
     this.nextMonth = this.nextMonth.bind(this);
     this.prevMonth = this.prevMonth.bind(this);
-    this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     this.days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fi', 'Sa'];
   }
 
@@ -69,17 +68,15 @@ class Calendar extends React.Component {
     return (
       <table className={styles.table}>
         <tbody>
-          {calendar.map((week, i) => {
-            return (
-              <tr key={i}>
-                {week.map((day, j) => {
-                  return (
-                    <td className={styles.cell} key={'i' + j}>{day}</td>
-                  );
-                })}
-              </tr>
-            )
-          })}
+          {calendar.map((week, i) => (
+            <tr key={i}>
+              {week.map((date, j) => (
+                <td className={styles.cell} key={`${i}${j}`}>
+                  {date}
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     );
