@@ -25,12 +25,12 @@ class Calendar extends React.Component {
   renderTitle() {
     const { month } = this.state;
     return (
-      <div>
-        <button onClick={this.prevMonth} type="button">←</button>
-        <span>
+      <div className={styles.titleGrid}>
+        <button className={styles.button} onClick={this.prevMonth} type="button">←</button>
+        <span className={styles.title}>
           {month.format('MMMM YYYY')}
         </span>
-        <button onClick={this.nextMonth} type="button">→</button>
+        <button className={styles.button} onClick={this.nextMonth} type="button">→</button>
       </div>
     );
   }
