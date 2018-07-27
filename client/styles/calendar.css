@@ -17,6 +17,7 @@
   border: 1px solid #E4E7E7;
   color: #484848;
   cursor: pointer;
+  font-size: 14px;
   height: 32px;
   text-align: center;
 }
@@ -27,7 +28,13 @@
 
 .invalid {
   composes: cell;
-  color: red;
+  color: #E4E7E7;
+  cursor: default;
+  text-decoration: line-through;
+}
+
+.invalid:hover {
+  background-color: white;
 }
 
 .title {
