@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Calendar from './calendar.jsx';
+import Calendar from './calendar';
 import styles from '../styles/dates.css';
 
 class Dates extends React.Component {
