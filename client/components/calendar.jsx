@@ -7,13 +7,32 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      month: '',
+      month: moment(),
     };
+    this.nextMonth = this.nextMonth.bind(this);
+    this.prevMonth = this.prevMonth.bind(this);
     this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   }
 
+  prevMonth() {
+    this.setState(prevState => ({ month: prevState.month.add(-1, 'months') }));
+  }
+
+  nextMonth() {
+    this.setState(prevState => ({ month: prevState.month.add(1, 'months') }));
+  }
+
   renderTitle() {
-    return <span>{moment().format('MMMM YYYY')}</span>;
+    const { month } = this.state;
+    return (
+      <div>
+        <button onClick={this.prevMonth} type="button">←</button>
+        <span>
+          {month.format('MMMM YYYY')}
+        </span>
+        <button onClick={this.nextMonth} type="button">→</button>
+      </div>
+    );
   }
 
   render() {
