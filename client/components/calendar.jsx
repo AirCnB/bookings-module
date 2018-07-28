@@ -59,7 +59,7 @@ class Calendar extends React.Component {
 
   renderCalendar() {
     const { month } = this.state;
-    const { reservedDates, checkin } = this.props;
+    const { reservedDates, checkin, checkout } = this.props;
 
     const DAYS_IN_WEEK = 7;
     const firstDayIndex = month.startOf('month').day();
@@ -87,13 +87,19 @@ class Calendar extends React.Component {
 
     const getCellStyle = (date) => {
       const checkinMoment = moment(checkin, 'MM-DD-YYYY');
+      const checkoutMoment = moment(checkout, 'MM-DD-YYYY');
       if (date === '') {
         return styles.emptyCell;
       }
       if (date in this.invalids || month.date(date) < moment()) {
         return styles.invalidCell;
       }
-      if (date === checkinMoment.date() && month.month() === checkinMoment.month()) {
+      if (
+        (date === checkinMoment.date()
+          && month.month() === checkinMoment.month())
+        || (date === checkoutMoment.date()
+          && month.month() === checkoutMoment.month())
+      ) {
         return styles.selectedCell;
       }
       return styles.cell;

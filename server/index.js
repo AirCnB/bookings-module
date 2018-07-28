@@ -11,7 +11,6 @@ app.get('/listings/:id/bookings', (req, res) => {
 
   // callback function to send data to client
   const sendToClient = (data) => {
-    console.log(data);
     res.status(200).send(data);
   }
 

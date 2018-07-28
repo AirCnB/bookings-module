@@ -88,6 +88,7 @@ class Dates extends React.Component {
             setNext={setNext}
             reservedDates={dates}
             checkin={checkin}
+            checkout={checkout}
           />
         )}
       </div>
