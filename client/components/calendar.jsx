@@ -91,7 +91,11 @@ class Calendar extends React.Component {
       if (date === '') {
         return styles.emptyCell;
       }
-      if (date in this.invalids || month.date(date) < moment()) {
+      if (
+        date in this.invalids
+        || month.date(date) < moment()
+        || month.date(date) < checkinMoment
+      ) {
         return styles.invalidCell;
       }
       if (
