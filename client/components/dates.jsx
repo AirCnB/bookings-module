@@ -9,13 +9,18 @@ class Dates extends React.Component {
     super(props);
     this.state = {
       showCalendar: false,
-      setNext: 'checkinDate',
-      checkinDate: '',
-      checkoutDate: '',
+      setNext: 'checkinString',
+      checkinString: '',
+      checkoutString: '',
     };
     this.showCalendar = this.showCalendar.bind(this);
     this.hideCalendar = this.hideCalendar.bind(this);
     this.setDates = this.setDates.bind(this);
+  }
+
+  setDates(date) {
+    this.setState(prevState => ({ [prevState.setNext]: date.format('L') }));
+    this.nextField();
   }
 
   showCalendar() {
@@ -30,42 +35,22 @@ class Dates extends React.Component {
     });
   }
 
-  setDates(date) {
-    console.log(this.state.setNext, date.format('L'));
-    this.setState({
-      [this.state.setNext]: date,
-    });
-    this.toggleField();
-  }
 
-  toggleField() {
-    const setNext = (this.state.setNext === 'checkinDate') ? 'checkoutDate' : 'checkinDate';
-    this.setState({
-      setNext,
+  nextField() {
+    this.setState(prevState => {
+      if (prevState.setNext === 'checkinString') {
+        return { setNext: 'checkoutString' };
+      } else {
+        return { showCalendar: false };
+      }
     });
   }
 
   render() {
-    const { showCalendar } = this.state;
+    const { showCalendar, checkinString, checkoutString } = this.state;
     const { reservedDates } = this.props;
 
     const dates = (reservedDates || []).map(date => moment(date));
-
-    let checkinDate;
-    if (this.state.checkinDate) {
-      checkinDate = this.state.checkinDate.format('L');
-    } else {
-      checkinDate = 'Check In';
-    }
-    console.log(checkinDate);
-
-    let checkoutDate;
-    if (this.state.checkoutDate) {
-      checkoutDate = this.state.checkoutDate.format('L');
-    } else {
-      checkoutDate = 'Check Out';
-    }
-    console.log(checkoutDate);
 
     return (
       <div className={styles.container}>
@@ -80,7 +65,7 @@ class Dates extends React.Component {
               type="text"
               name="checkin"
               placeholder="Check In"
-              value={checkinDate}
+              value={checkinString}
             />
             ➝
             <input
@@ -89,7 +74,7 @@ class Dates extends React.Component {
               type="text"
               name="checkout"
               placeholder="Check Out"
-              value={checkoutDate}
+              value={checkoutString}
             />
           </div>
         </div>

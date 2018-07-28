@@ -25,7 +25,9 @@ class Calendar extends React.Component {
 
   handleClick(event) {
     const { setDates } = this.props;
-    const clickedDate = this.state.month.date(event.target.innerHTML);
+    const { month } = this.state;
+
+    const clickedDate = month.date(event.target.innerHTML);
     setDates(clickedDate);
   }
 
@@ -56,6 +58,8 @@ class Calendar extends React.Component {
 
   renderCalendar() {
     const { month } = this.state;
+    const { reservedDates } = this.props;
+
     const DAYS_IN_WEEK = 7;
     const firstDayIndex = month.startOf('month').day();
     const daysInMonth = month.daysInMonth();
@@ -73,8 +77,9 @@ class Calendar extends React.Component {
     }
 
     this.invalids = {};
-    for (let date of this.props.reservedDates) {
-      if (date.month() === this.state.month.month()) {
+    for (let i = 0; i < reservedDates.length; i += 1) {
+      const date = reservedDates[i];
+      if (date.month() === month.month()) {
         this.invalids[date.date()] = true;
       }
     }
@@ -87,7 +92,7 @@ class Calendar extends React.Component {
         return styles.invalidCell;
       }
       return styles.cell;
-    }
+    };
 
     return (
       <table className={styles.table}>
