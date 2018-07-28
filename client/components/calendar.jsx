@@ -11,6 +11,7 @@ class Calendar extends React.Component {
     };
     this.nextMonth = this.nextMonth.bind(this);
     this.prevMonth = this.prevMonth.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fi', 'Sa'];
   }
 
@@ -20,6 +21,12 @@ class Calendar extends React.Component {
 
   nextMonth() {
     this.setState(prevState => ({ month: prevState.month.add(1, 'months') }));
+  }
+
+  handleClick(event) {
+    const { setDates } = this.props;
+    const clickedDate = this.state.month.date(event.target.innerHTML);
+    setDates(clickedDate);
   }
 
   renderTitle() {
@@ -37,10 +44,6 @@ class Calendar extends React.Component {
         </button>
       </div>
     );
-  }
-
-  handleClick(event) {
-    console.log(event.target.innerHTML);
   }
 
   renderHeader() {
