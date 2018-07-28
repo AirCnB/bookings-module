@@ -39,6 +39,10 @@ class Calendar extends React.Component {
     );
   }
 
+  handleClick(event) {
+    console.log(event.target.innerHTML);
+  }
+
   renderHeader() {
     return (
       <div className={styles.header}>
@@ -88,7 +92,7 @@ class Calendar extends React.Component {
           {calendar.map((week, i) => (
             <tr key={i}>
               {week.map((date, j) => (
-                <td className={getCellStyle(date)} key={`${i}${j}`}>
+                <td className={getCellStyle(date)} onClick={this.handleClick} key={`${i}${j}`}>
                   {date}
                 </td>
               ))}

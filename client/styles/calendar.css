@@ -29,17 +29,17 @@
 .emptyCell {
   composes: cell;
   border: none;
+  pointer-events: none;
 }
 
 .emptyCell:hover {
   background-color: white;
-  cursor: default;
 }
 
 .invalidCell {
   composes: cell;
   color: #E4E7E7;
-  cursor: default;
+  pointer-events: none;
   text-decoration: line-through;
 }
 
