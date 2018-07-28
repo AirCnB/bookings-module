@@ -9,9 +9,13 @@ class Dates extends React.Component {
     super(props);
     this.state = {
       showCalendar: false,
+      setNext: 'checkinDate',
+      checkinDate: '',
+      checkoutDate: '',
     };
     this.showCalendar = this.showCalendar.bind(this);
     this.hideCalendar = this.hideCalendar.bind(this);
+    this.setDates = this.setDates.bind(this);
   }
 
   showCalendar() {
@@ -26,16 +30,37 @@ class Dates extends React.Component {
     });
   }
 
+  setDates(date) {
+    this.setState({
+      [this.state.setNext]: date,
+    });
+    this.toggleField();
+  }
+
+  toggleField() {
+    const setNext = (this.state.setNext === 'checkinDate') ? 'checkoutDate' : 'checkinDate';
+    this.setState({
+      setNext,
+    });
+  }
+
   render() {
     const { showCalendar } = this.state;
     const { reservedDates } = this.props;
 
     const dates = (reservedDates || []).map(date => moment(date));
 
+    let checkinDate;
+    if (this.state.checkinDate) {
+      checkinDate = this.state.checkinDate.format('L');
+    } else {
+      checkinDate = 'Check In';
+    }
+
     return (
       <div className={styles.container}>
         <div id="dates-label">
-          <span className={styles.label}>Dates</span>
+          <span onClick={this.hideCalendar} className={styles.label}>Dates</span>
         </div>
         <div className={styles.inputContainer}>
           <div id="checkin-box">
@@ -45,6 +70,7 @@ class Dates extends React.Component {
               type="text"
               name="checkin"
               placeholder="Check In"
+              value={checkinDate}
             />
             ➝
             <input
@@ -56,7 +82,12 @@ class Dates extends React.Component {
             />
           </div>
         </div>
-        {showCalendar && <Calendar reservedDates={dates} />}
+        {showCalendar && (
+          <Calendar
+            setDates={this.setDates}
+            reservedDates={dates}
+          />
+        )}
       </div>
     );
   }

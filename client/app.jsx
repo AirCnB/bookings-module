@@ -30,7 +30,6 @@ class App extends React.Component {
         this.setState({
           bookingData: response.data
         });
-        console.log(response);
       });
   }
 
