@@ -9,9 +9,9 @@ class Dates extends React.Component {
     super(props);
     this.state = {
       showCalendar: false,
-      setNext: 'checkinString',
-      checkinString: '',
-      checkoutString: '',
+      setNext: 'checkin',
+      checkin: '',
+      checkout: '',
     };
     this.showCalendar = this.showCalendar.bind(this);
     this.hideCalendar = this.hideCalendar.bind(this);
@@ -35,19 +35,22 @@ class Dates extends React.Component {
     });
   }
 
-
   nextField() {
     this.setState(prevState => {
-      if (prevState.setNext === 'checkinString') {
-        return { setNext: 'checkoutString' };
+      if (prevState.setNext === 'checkin') {
+        return { setNext: 'checkout' };
       } else {
         return { showCalendar: false };
       }
     });
   }
 
+  handleClick(event) {
+    console.log(event.target.name);
+  }
+
   render() {
-    const { showCalendar, checkinString, checkoutString } = this.state;
+    const { showCalendar, checkin, checkout, setNext } = this.state;
     const { reservedDates } = this.props;
 
     const dates = (reservedDates || []).map(date => moment(date));
@@ -61,11 +64,12 @@ class Dates extends React.Component {
           <div id="checkin-box">
             <input
               className={styles.inputBox}
+              onClick={this.handleClick}
               onFocus={this.showCalendar}
               type="text"
               name="checkin"
               placeholder="Check In"
-              value={checkinString}
+              value={checkin}
             />
             ➝
             <input
@@ -74,14 +78,16 @@ class Dates extends React.Component {
               type="text"
               name="checkout"
               placeholder="Check Out"
-              value={checkoutString}
+              value={checkout}
             />
           </div>
         </div>
         {showCalendar && (
           <Calendar
             setDates={this.setDates}
+            setNext={setNext}
             reservedDates={dates}
+            checkin={checkin}
           />
         )}
       </div>

@@ -47,6 +47,16 @@
   background-color: white;
 }
 
+.selectedCell {
+  color: white;
+  composes: cell;
+  background-color: #00a699;
+}
+
+.selectedCell:hover {
+  background-color: #00a699;
+}
+
 .title {
   font-size: 18px;
   font-weight: 700;
