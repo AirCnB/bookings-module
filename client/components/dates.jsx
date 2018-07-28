@@ -31,6 +31,7 @@ class Dates extends React.Component {
   }
 
   setDates(date) {
+    console.log(this.state.setNext, date.format('L'));
     this.setState({
       [this.state.setNext]: date,
     });
@@ -56,6 +57,15 @@ class Dates extends React.Component {
     } else {
       checkinDate = 'Check In';
     }
+    console.log(checkinDate);
+
+    let checkoutDate;
+    if (this.state.checkoutDate) {
+      checkoutDate = this.state.checkoutDate.format('L');
+    } else {
+      checkoutDate = 'Check Out';
+    }
+    console.log(checkoutDate);
 
     return (
       <div className={styles.container}>
@@ -79,6 +89,7 @@ class Dates extends React.Component {
               type="text"
               name="checkout"
               placeholder="Check Out"
+              value={checkoutDate}
             />
           </div>
         </div>
