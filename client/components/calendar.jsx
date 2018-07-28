@@ -86,11 +86,11 @@ class Calendar extends React.Component {
     }
 
     const getCellStyle = (date) => {
-      let checkinMoment = moment(checkin, 'MM-DD-YYYY');
+      const checkinMoment = moment(checkin, 'MM-DD-YYYY');
       if (date === '') {
         return styles.emptyCell;
       }
-      if (date in this.invalids) {
+      if (date in this.invalids || month.date(date) < moment()) {
         return styles.invalidCell;
       }
       if (date === checkinMoment.date() && month.month() === checkinMoment.month()) {
