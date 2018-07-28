@@ -1,8 +1,28 @@
 import React from 'react';
 
-const Summary = () => {
+import styles from '../styles/summary.css';
+
+const renderRow = (left, right) => {
   return (
-    <div id="summary">
+    <div className={styles.grid}>
+      <div>
+        {left}
+      </div>
+      <div className={styles.right}>
+        {right}
+      </div>
+    </div>
+  );
+}
+
+const Summary = (props) => {
+
+  const rate = '$149 x 7 nights';
+  const total = 149 * 7;
+  return (
+    <div id="summary" className={styles.wrapper}>
+      {renderRow('left', 'right')}
+      {renderRow(rate, `$${total.toLocaleString()}`)}
       <div>
         $100 x 10 nights
       </div>
