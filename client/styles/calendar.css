@@ -94,3 +94,7 @@
 .button:hover {
   border: 1px solid #cccccc;
 }
+
+.textButton {
+  composes: textButton from './guestsDropdown.css';
+}
