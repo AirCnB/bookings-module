@@ -57,6 +57,15 @@ class Calendar extends React.Component {
     );
   }
 
+  renderButton() {
+    const { clearDates } = this.props;
+    return (
+      <div onClick={clearDates} className={styles.textButton}>
+        Clear Dates
+      </div>
+    );
+  }
+
   renderCalendar() {
     const { month } = this.state;
     const { reservedDates, checkin, checkout } = this.props;
@@ -132,6 +141,7 @@ class Calendar extends React.Component {
         {this.renderTitle()}
         {this.renderHeader()}
         {this.renderCalendar()}
+        {this.renderButton()}
       </div>
     );
   }

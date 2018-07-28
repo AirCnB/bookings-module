@@ -16,11 +16,19 @@ class Dates extends React.Component {
     this.showCalendar = this.showCalendar.bind(this);
     this.hideCalendar = this.hideCalendar.bind(this);
     this.setDates = this.setDates.bind(this);
+    this.clearDates = this.clearDates.bind(this);
   }
 
   setDates(date) {
     this.setState(prevState => ({ [prevState.setNext]: date.format('L') }));
     this.nextField();
+  }
+
+  clearDates() {
+    this.setState({
+      checkin: '',
+      checkout: '',
+    });
   }
 
   showCalendar() {
@@ -50,7 +58,7 @@ class Dates extends React.Component {
   }
 
   render() {
-    const { showCalendar, checkin, checkout, setNext } = this.state;
+    const { showCalendar, checkin, checkout, setNext, clearDates } = this.state;
     const { reservedDates } = this.props;
 
     const dates = (reservedDates || []).map(date => moment(date));
@@ -85,6 +93,7 @@ class Dates extends React.Component {
         {showCalendar && (
           <Calendar
             setDates={this.setDates}
+            clearDates={this.clearDates}
             setNext={setNext}
             reservedDates={dates}
             checkin={checkin}
