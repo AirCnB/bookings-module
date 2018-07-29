@@ -13,6 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       bookingData: {},
+      stayDuration: null,
     };
   }
 
@@ -26,15 +27,19 @@ class App extends React.Component {
     const bookingsRoute = `/listings/${url.match(REG_NUM)[1]}/bookings`;
 
     axios.get(bookingsRoute)
-      .then((response) => {
+      .then(({ data }) => {
         this.setState({
-          bookingData: response.data,
+          bookingData: data,
         });
       });
   }
 
+  updateStayDuration(stayDuration) {
+    this.setState({ stayDuration });
+  }
+
   render() {
-    const { bookingData } = this.state;
+    const { bookingData, stayDuration } = this.state;
     const {
       nightlyRate,
       reviewAverage,
@@ -58,6 +63,7 @@ class App extends React.Component {
           cleaningFee={cleaningFee}
           occupancyFee={occupancyFee}
           serviceFee={serviceFee}
+          stayDuration={stayDuration}
         />
         <button type="button">
           Request to Book
