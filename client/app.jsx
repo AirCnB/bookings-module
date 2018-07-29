@@ -34,7 +34,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { nightlyRate, reviewAverage, reviewCount, reservedDates } = this.state.bookingData;
+    const { bookingData } = this.state;
+    const {
+      nightlyRate,
+      reviewAverage,
+      reviewCount,
+      reservedDates,
+      occupancyFee,
+      cleaningFee,
+      serviceFee,
+    } = bookingData;
     return (
       <div className={styles.container}>
         <Pricing
@@ -44,7 +53,12 @@ class App extends React.Component {
         />
         <Dates reservedDates={reservedDates} />
         <Guests />
-        <Summary />
+        <Summary
+          nightlyRate={nightlyRate}
+          cleaningFee={cleaningFee}
+          occupancyFee={occupancyFee}
+          serviceFee={serviceFee}
+        />
         <button type="button">Request to Book</button>
       </div>
     );

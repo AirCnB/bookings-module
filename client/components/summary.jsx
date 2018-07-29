@@ -15,28 +15,35 @@ const renderRow = (left, right) => {
   );
 }
 
-const renderTotal = (left, right) => {
+const renderTotal = (total) => {
   return (
     <div className={styles.total}>
       <div>
-        {left}
+        Total
       </div>
       <div className={styles.right}>
-        {right}
+        {total}
       </div>
     </div>
   );
 }
 
 const Summary = (props) => {
-  const rate = '$149 x 7 nights';
-  const total = 149 * 7;
+  const { nightlyRate, cleaningFee, occupancyFee, serviceFee } = props;
+  const nights = 7;
+
+  const nightlyTotal = nightlyRate * 7;
+  const rateText = `$${nightlyRate} x ${nights} nights`
+
+  const total = nightlyTotal + cleaningFee + occupancyFee + serviceFee;
+
   return (
     <div id="summary" className={styles.wrapper}>
-      {renderRow(rate, `$${total.toLocaleString()}`)}
-      {renderRow('Service Fee', '$123')}
-      {renderRow('Occupancy Fee', '$143')}
-      {renderTotal('Total', '$1309')}
+      {renderRow(rateText, `$${nightlyTotal.toLocaleString()}`)}
+      {renderRow('Cleaning Fee',  `$${(cleaningFee || 0).toLocaleString()}`)}
+      {renderRow('Service Fee',  `$${(serviceFee || 0).toLocaleString()}`)}
+      {renderRow('Occupancy Fee',  `$${(occupancyFee || 0).toLocaleString()}`)}
+      {renderTotal(`$${total.toLocaleString()}`)}
     </div>
   );
 };
