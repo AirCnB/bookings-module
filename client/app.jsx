@@ -6,6 +6,7 @@ import Pricing from './components/pricing';
 import Dates from './components/dates';
 import Guests from './components/guests';
 import Summary from './components/summary';
+import BookingButton from './components/bookingButton';
 import styles from './styles/app.css';
 
 class App extends React.Component {
@@ -38,19 +39,6 @@ class App extends React.Component {
     this.setState({ stayDuration });
   }
 
-  renderButton() {
-    return (
-      <div>
-        <button className={styles.requestButton} type="button">
-          Request to Book
-        </button>
-        <div className={styles.buttonNote}>
-          You won&apos;t be charged yet
-        </div>
-      </div>
-    );
-  }
-
   render() {
     const { bookingData, stayDuration } = this.state;
     const {
@@ -62,6 +50,7 @@ class App extends React.Component {
       cleaningFee,
       serviceFee,
     } = bookingData;
+
     return (
       <div className={styles.container}>
         <Pricing
@@ -78,7 +67,7 @@ class App extends React.Component {
           serviceFee={serviceFee}
           stayDuration={stayDuration}
         />
-        {this.renderButton()}
+        <BookingButton />
       </div>
     );
   }
