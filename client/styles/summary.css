@@ -15,3 +15,9 @@
 .right {
   margin-left: auto;
 }
+
+.total {
+  composes: grid;
+  border-bottom: none;
+  font-weight: 600;
+}
