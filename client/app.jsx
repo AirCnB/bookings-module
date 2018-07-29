@@ -65,7 +65,7 @@ class App extends React.Component {
           serviceFee={serviceFee}
           stayDuration={stayDuration}
         />
-        <button type="button">
+        <button className={styles.requestButton} type="button">
           Request to Book
         </button>
       </div>
