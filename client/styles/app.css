@@ -17,3 +17,11 @@
   padding-bottom: 12px;
   width: 100%;
 }
+
+.buttonNote {
+  color: #484848;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 8px;
+  text-align: center;
+}

@@ -38,6 +38,19 @@ class App extends React.Component {
     this.setState({ stayDuration });
   }
 
+  renderButton() {
+    return (
+      <div>
+        <button className={styles.requestButton} type="button">
+          Request to Book
+        </button>
+        <div className={styles.buttonNote}>
+          You won&apos;t be charged yet
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const { bookingData, stayDuration } = this.state;
     const {
@@ -65,9 +78,7 @@ class App extends React.Component {
           serviceFee={serviceFee}
           stayDuration={stayDuration}
         />
-        <button className={styles.requestButton} type="button">
-          Request to Book
-        </button>
+        {this.renderButton()}
       </div>
     );
   }
