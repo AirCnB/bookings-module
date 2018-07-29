@@ -40,9 +40,9 @@ const Summary = (props) => {
   return (
     <div id="summary" className={styles.wrapper}>
       {renderRow(rateText, `$${nightlyTotal.toLocaleString()}`)}
-      {renderRow('Cleaning Fee',  `$${(cleaningFee || 0).toLocaleString()}`)}
-      {renderRow('Service Fee',  `$${(serviceFee || 0).toLocaleString()}`)}
-      {renderRow('Occupancy Fee',  `$${(occupancyFee || 0).toLocaleString()}`)}
+      {renderRow('Cleaning Fee', `$${(cleaningFee || 0).toLocaleString()}`)}
+      {renderRow('Service Fee', `$${(serviceFee || 0).toLocaleString()}`)}
+      {renderRow('Occupancy Fee', `$${(occupancyFee || 0).toLocaleString()}`)}
       {renderTotal(`$${total.toLocaleString()}`)}
     </div>
   );
