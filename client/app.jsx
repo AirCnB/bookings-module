@@ -23,12 +23,12 @@ class App extends React.Component {
   getBookingData() {
     const REG_NUM = /\/(\d*)\//;
     const url = window.location.pathname;
-    const route = `/listings/${url.match(REG_NUM)[1]}/bookings`;
+    const bookingsRoute = `/listings/${url.match(REG_NUM)[1]}/bookings`;
 
-    axios.get(route)
+    axios.get(bookingsRoute)
       .then((response) => {
         this.setState({
-          bookingData: response.data
+          bookingData: response.data,
         });
       });
   }
@@ -59,7 +59,9 @@ class App extends React.Component {
           occupancyFee={occupancyFee}
           serviceFee={serviceFee}
         />
-        <button type="button">Request to Book</button>
+        <button type="button">
+          Request to Book
+        </button>
       </div>
     );
   }
