@@ -28,30 +28,34 @@ const renderStars = (reviewAverage = 0) => {
   ));
 };
 
-const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
-  return (
-    <div className={styles.container}>
-      <div id="nightly-rate">
-        <span className={styles.rate}>
-          {`$${nightlyRate}`}
-        </span>
-        <span className={styles.label}>
-          per night
-        </span>
-      </div>
-      <div id="rating">
-        <span className={styles.stars}>
-          {renderStars(reviewAverage)}
-        </span>
-        <span className={styles.label}>
-          {reviewCount}
-        </span>
-      </div>
+const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => (
+  <div className={styles.container}>
+    <div id="nightly-rate">
+      <span className={styles.rate}>
+        {`$${nightlyRate}`}
+      </span>
+      <span className={styles.label}>
+        per night
+      </span>
     </div>
-  );
-};
+    <div id="rating">
+      <span className={styles.stars}>
+        {renderStars(reviewAverage)}
+      </span>
+      <span className={styles.label}>
+        {reviewCount}
+      </span>
+    </div>
+  </div>
+);
 
 Pricing.defaultProps = {
+  nightlyRate: PropTypes.number,
+  reviewAverage: PropTypes.number,
+  reviewCount: PropTypes.number,
+};
+
+Pricing.propTypes = {
   nightlyRate: PropTypes.number,
   reviewAverage: PropTypes.number,
   reviewCount: PropTypes.number,
