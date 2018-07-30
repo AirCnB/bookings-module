@@ -20,6 +20,9 @@ class Dates extends React.Component {
   }
 
   setDates(date) {
+    if (this.state.setNext === 'checkout') {
+      this.getDuration(date);
+    }
     this.setState(prevState => ({ [prevState.setNext]: date.format('L') }));
     this.nextField();
   }
@@ -43,13 +46,20 @@ class Dates extends React.Component {
     });
   }
 
+  getDuration(checkout = '08/20/2018') {
+    // chain .diff and .asDays
+    const { checkin } = this.state;
+    let checkinMoment = moment(checkin, 'MM-DD-YYYY');
+    let checkoutMoment = moment(checkout, 'MM-DD-YYYY');
+    console.log(moment.duration(checkoutMoment.diff(checkinMoment)).asDays());
+  }
+
   nextField() {
     this.setState(prevState => {
       if (prevState.setNext === 'checkin') {
         return { setNext: 'checkout' };
-      } else {
-        return { showCalendar: false };
       }
+      return { showCalendar: false };
     });
   }
 

@@ -16,6 +16,7 @@ class App extends React.Component {
       bookingData: {},
       stayDuration: null,
     };
+    this.updateStayDuration = this.updateStayDuration.bind(this);
   }
 
   componentDidMount() {
@@ -58,7 +59,10 @@ class App extends React.Component {
           reviewAverage={reviewAverage}
           reviewCount={reviewCount}
         />
-        <Dates reservedDates={reservedDates} />
+        <Dates
+          reservedDates={reservedDates}
+          updateStayDuration={this.updateStayDuration}
+        />
         <Guests />
         <Summary
           nightlyRate={nightlyRate}
