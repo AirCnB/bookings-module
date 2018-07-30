@@ -2,6 +2,11 @@ import React from 'react';
 
 import styles from '../styles/pricing.css';
 
+const renderStars = (reviewAverage) => {
+  const numStars = Math.round(reviewAverage);
+  return '★'.repeat(numStars);
+};
+
 const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
   return (
     <div className={styles.container}>
@@ -10,7 +15,9 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
         <span className={styles.label}>per night</span>
       </div>
       <div id="rating">
-        <span className={styles.stars}>★★★★★</span>
+        <span className={styles.stars}>
+          {renderStars(reviewAverage)}
+        </span>
         <span className={styles.label}>{reviewCount}</span>
       </div>
     </div>
