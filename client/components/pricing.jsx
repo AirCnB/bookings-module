@@ -14,9 +14,9 @@ const renderStars = (reviewAverage = 0) => {
   const hasHalf = halfRound % 1 !== 0;
   const emptyCount = TOTAL_STARS - filledCount - hasHalf;
 
-  stars = stars.concat(Array(filledCount || 0).fill('star_full.svg'))
-    .concat(Array(+hasHalf || 0).fill('star_half.svg'))
-    .concat(Array(emptyCount || 0).fill('star_empty.svg'));
+  stars = stars.concat(Array(filledCount).fill('star_full.svg'))
+    .concat(Array(+hasHalf).fill('star_half.svg'))
+    .concat(Array(emptyCount).fill('star_empty.svg'));
 
   return stars.map((fileName, i) => (
     <img
@@ -49,10 +49,16 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => (
   </div>
 );
 
+Pricing.defaultProps = {
+  nightlyRate: 0,
+  reviewAverage: 0,
+  reviewCount: 0,
+};
+
 Pricing.propTypes = {
-  nightlyRate: PropTypes.number.isRequired,
-  reviewAverage: PropTypes.number.isRequired,
-  reviewCount: PropTypes.number.isRequired,
+  nightlyRate: PropTypes.number,
+  reviewAverage: PropTypes.number,
+  reviewCount: PropTypes.number,
 };
 
 export default Pricing;
