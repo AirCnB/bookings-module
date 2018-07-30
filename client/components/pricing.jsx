@@ -1,10 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from '../styles/pricing.css';
 
-const roundToHalf = (num) => {
-  return Math.round(num * 2) / 2;
-};
+const roundToHalf = num => Math.round(num * 2) / 2;
 
 const renderStars = (reviewAverage = 0) => {
   let stars = [];
@@ -19,8 +18,13 @@ const renderStars = (reviewAverage = 0) => {
     .concat(Array(+hasHalf || 0).fill('star_half.svg'))
     .concat(Array(emptyCount || 0).fill('star_empty.svg'));
 
-  return stars.map(fileName => (
-    <img className={styles.stars} src={`./media/${fileName}`} />
+  return stars.map((fileName, i) => (
+    <img
+      className={styles.stars}
+      alt={`Average rating is ${halfRound}`}
+      src={`./media/${fileName}`}
+      key={i}
+    />
   ));
 };
 
@@ -39,6 +43,12 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
       </div>
     </div>
   );
+};
+
+Pricing.defaultProps = {
+  nightlyRate: PropTypes.number,
+  reviewAverage: PropTypes.number,
+  reviewAverage: PropTypes.number ,
 };
 
 export default Pricing;
