@@ -32,14 +32,20 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
   return (
     <div className={styles.container}>
       <div id="nightly-rate">
-        <span className={styles.rate}>${nightlyRate}</span>
-        <span className={styles.label}>per night</span>
+        <span className={styles.rate}>
+          {`$${nightlyRate}`}
+        </span>
+        <span className={styles.label}>
+          per night
+        </span>
       </div>
       <div id="rating">
         <span className={styles.stars}>
           {renderStars(reviewAverage)}
         </span>
-        <span className={styles.label}>{reviewCount}</span>
+        <span className={styles.label}>
+          {reviewCount}
+        </span>
       </div>
     </div>
   );
@@ -48,7 +54,7 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => {
 Pricing.defaultProps = {
   nightlyRate: PropTypes.number,
   reviewAverage: PropTypes.number,
-  reviewAverage: PropTypes.number ,
+  reviewCount: PropTypes.number,
 };
 
 export default Pricing;
