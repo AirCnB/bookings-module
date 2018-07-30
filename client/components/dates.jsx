@@ -20,8 +20,12 @@ class Dates extends React.Component {
   }
 
   setDates(date) {
-    if (this.state.setNext === 'checkout') {
-      this.getDuration(date);
+    const { setNext } = this.state;
+    const { updateStayDuration } = this.props;
+
+    if (setNext === 'checkout') {
+      const duration = this.getDuration(date);
+      updateStayDuration(duration);
     }
     this.setState(prevState => ({ [prevState.setNext]: date.format('L') }));
     this.nextField();
@@ -47,11 +51,10 @@ class Dates extends React.Component {
   }
 
   getDuration(checkout = '08/20/2018') {
-    // chain .diff and .asDays
     const { checkin } = this.state;
     let checkinMoment = moment(checkin, 'MM-DD-YYYY');
     let checkoutMoment = moment(checkout, 'MM-DD-YYYY');
-    console.log(moment.duration(checkoutMoment.diff(checkinMoment)).asDays());
+    return moment.duration(checkoutMoment.diff(checkinMoment)).asDays();
   }
 
   nextField() {
