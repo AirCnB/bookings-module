@@ -49,16 +49,10 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => (
   </div>
 );
 
-Pricing.defaultProps = {
-  nightlyRate: PropTypes.number,
-  reviewAverage: PropTypes.number,
-  reviewCount: PropTypes.number,
-};
-
 Pricing.propTypes = {
-  nightlyRate: PropTypes.number,
-  reviewAverage: PropTypes.number,
-  reviewCount: PropTypes.number,
+  nightlyRate: PropTypes.number.isRequired,
+  reviewAverage: PropTypes.number.isRequired,
+  reviewCount: PropTypes.number.isRequired,
 };
 
 export default Pricing;
