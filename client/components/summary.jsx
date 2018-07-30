@@ -29,11 +29,10 @@ const renderTotal = (total) => {
 }
 
 const Summary = (props) => {
-  const { nightlyRate, cleaningFee, occupancyFee, serviceFee } = props;
-  const nights = 7;
+  const { nightlyRate, cleaningFee, occupancyFee, serviceFee, stayDuration } = props;
 
-  const nightlyTotal = nightlyRate * 7;
-  const rateText = `$${nightlyRate} x ${nights} nights`
+  const nightlyTotal = nightlyRate * stayDuration;
+  const rateText = `$${nightlyRate} x ${stayDuration} nights`
 
   const total = nightlyTotal + cleaningFee + occupancyFee + serviceFee;
 
