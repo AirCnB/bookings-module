@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-import Pricing from './components/pricing';
-import Dates from './components/dates';
-import Guests from './components/guests';
-import Summary from './components/summary';
-import BookingButton from './components/bookingButton';
+import Pricing from './components/Pricing';
+import Dates from './components/Dates';
+import Guests from './components/Guests';
+import Summary from './components/Summary';
+import BookingButton from './components/BookingButton';
 import { container } from './styles/app.css';
 
 class App extends Component {
