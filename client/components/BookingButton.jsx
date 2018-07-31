@@ -1,13 +1,13 @@
 import React from 'react';
 
-import styles from '../styles/bookingButton.css';
+import { button, label } from '../styles/bookingButton.css';
 
 const BookingButton = () => (
   <div>
-    <button className={styles.button} type="button">
+    <button className={button} type="button">
       Request to Book
     </button>
-    <div className={styles.label}>
+    <div className={label}>
       You won&apos;t be charged yet
     </div>
   </div>
