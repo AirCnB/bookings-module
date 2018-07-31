@@ -7,8 +7,8 @@ test('adds 1 + 2  to equal 3', () => {
 
 // TODO: refactor to use async/await?
 // test server GET api
-test('responds to GET /listings/:id/bookings with a 200 status code', () => {
-  request.get('http://localhost:3004/listings/1/bookings')
+test('responds to GET /api/listings/:id/bookings with a 200 status code', () => {
+  request.get('http://localhost:3004/api/listings/1/bookings')
     .on('response', (response) => {
       expect(response.statusCode).toBe(200);
     })
