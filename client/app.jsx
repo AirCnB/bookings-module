@@ -26,7 +26,7 @@ class App extends React.Component {
   getBookingData() {
     const REG_NUM = /\/(\d*)\//;
     const url = window.location.pathname;
-    const bookingsRoute = `/listings/${url.match(REG_NUM)[1]}/bookings`;
+    const bookingsRoute = `/api/listings/${url.match(REG_NUM)[1]}/bookings`;
 
     axios.get(bookingsRoute)
       .then(({ data }) => {
