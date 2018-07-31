@@ -1,15 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import styles from '../styles/calendar.css';
 
+const propTypes = {
+  setDates: PropTypes.func.isRequired,
+  clearDates: PropTypes.func.isRequired,
+  reservedDates: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
+  checkin: PropTypes.string.isRequired,
+  checkout: PropTypes.string.isRequired,
+};
+
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       month: moment(),
-      checkin: null,
     };
+
     this.nextMonth = this.nextMonth.bind(this);
     this.prevMonth = this.prevMonth.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -146,5 +156,7 @@ class Calendar extends React.Component {
     );
   }
 }
+
+Calendar.propTypes = propTypes;
 
 export default Calendar;
