@@ -1,7 +1,7 @@
 .container {
+  border: 1px solid #E4E4E4;
   color: #484848;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
-  border: 1px solid #E4E4E4;
   padding: 15px 20px 15px 20px;
   width: 300px;
 }
