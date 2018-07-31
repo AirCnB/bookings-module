@@ -21,15 +21,7 @@ const bookingsSchema = mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingsSchema);
 
-const getData = (id, callback) => {
-  Booking.findOne({ id }, (error, data) => {
-    if (error) {
-      console.log(error);
-      return;
-    }
-    callback(data);
-  });
-};
+const getData = id => Booking.findOne({ id });
 
 module.exports = {
   Booking,

@@ -8,13 +8,9 @@ const servicePort = 3004;
 app.use('/listings/:id', express.static('./public'));
 
 app.get('/api/listings/:id/bookings', (req, res) => {
-
-  // callback function to send data to client
-  const sendToClient = (data) => {
-    res.status(200).send(data);
-  }
-
-  db.getData(req.params.id, sendToClient);
+  db.getData(req.params.id)
+    .then(data => res.status(200).send(data))
+    .catch(error => res.status(404).send(error));
 });
 
 app.listen(servicePort, () => {
