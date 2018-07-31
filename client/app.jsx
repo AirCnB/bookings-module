@@ -12,10 +12,12 @@ import { container } from './styles/app.css';
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       bookingData: {},
       stayDuration: null,
     };
+
     this.updateStayDuration = this.updateStayDuration.bind(this);
   }
 
@@ -24,11 +26,12 @@ class App extends Component {
   }
 
   getBookingData() {
-    const REG_NUM = /\/(\d*)\//;
     const url = window.location.pathname;
-    const bookingsRoute = `/api/listings/${url.match(REG_NUM)[1]}/bookings`;
+    const REGEX_CAPTURE_NUM = /\/(\d*)\//;
+    const listingId = url.match(REGEX_CAPTURE_NUM)[1];
+    const apiEndpoint = `/api/listings/${listingId}/bookings`;
 
-    axios.get(bookingsRoute)
+    axios.get(apiEndpoint)
       .then(({ data }) => {
         this.setState({
           bookingData: data,
