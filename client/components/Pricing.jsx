@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 
 import styles from '../styles/pricing.css';
 
+const {
+  stars,
+  container,
+  rate,
+  label,
+} = styles;
+
 const roundToHalf = num => Math.round(num * 2) / 2;
 
 const renderStars = (reviewAverage = 0) => {
@@ -13,13 +20,13 @@ const renderStars = (reviewAverage = 0) => {
   const hasHalf = halfRound % 1 !== 0;
   const emptyCount = TOTAL_STARS - filledCount - hasHalf;
 
-  const stars = Array(filledCount).fill('star_full.svg')
+  const starFiles = Array(filledCount).fill('star_full.svg')
     .concat(Array(+hasHalf).fill('star_half.svg'))
     .concat(Array(emptyCount).fill('star_empty.svg'));
 
-  return stars.map((fileName, i) => (
+  return starFiles.map((fileName, i) => (
     <img
-      className={styles.stars}
+      className={stars}
       alt={`Average rating is ${halfRound}`}
       src={`./media/${fileName}`}
       key={i}
@@ -28,20 +35,20 @@ const renderStars = (reviewAverage = 0) => {
 };
 
 const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => (
-  <div className={styles.container}>
+  <div className={container}>
     <div id="nightly-rate">
-      <span className={styles.rate}>
+      <span className={rate}>
         {`$${nightlyRate}`}
       </span>
-      <span className={styles.label}>
+      <span className={label}>
         per night
       </span>
     </div>
     <div id="rating">
-      <span className={styles.stars}>
+      <span>
         {renderStars(reviewAverage)}
       </span>
-      <span className={styles.label}>
+      <span className={label}>
         {reviewCount}
       </span>
     </div>

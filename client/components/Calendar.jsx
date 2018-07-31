@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
@@ -12,7 +12,7 @@ const propTypes = {
   checkout: PropTypes.string.isRequired,
 };
 
-class Calendar extends React.Component {
+class Calendar extends Component {
   constructor(props) {
     super(props);
 
@@ -20,17 +20,16 @@ class Calendar extends React.Component {
       month: moment(),
     };
 
-    this.nextMonth = this.nextMonth.bind(this);
-    this.prevMonth = this.prevMonth.bind(this);
+    this.setToNextMonth = this.setToNextMonth.bind(this);
+    this.setToPrevMonth = this.setToPrevMonth.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fi', 'Sa'];
   }
 
-  prevMonth() {
+  setToPrevMonth() {
     this.setState(prevState => ({ month: prevState.month.add(-1, 'months') }));
   }
 
-  nextMonth() {
+  setToNextMonth() {
     this.setState(prevState => ({ month: prevState.month.add(1, 'months') }));
   }
 
@@ -44,33 +43,40 @@ class Calendar extends React.Component {
 
   renderTitle() {
     const { month } = this.state;
+    const { titleGrid, title, button } = styles;
+
     return (
-      <div className={styles.titleGrid}>
-        <button className={styles.button} onClick={this.prevMonth} type="button">
+      <div className={titleGrid}>
+        <button className={button} onClick={this.setToPrevMonth} type="button">
           ←
         </button>
-        <span className={styles.title}>
+        <span className={title}>
           {month.format('MMMM YYYY')}
         </span>
-        <button className={styles.button} onClick={this.nextMonth} type="button">
+        <button className={button} onClick={this.setToNextMonth} type="button">
           →
         </button>
       </div>
     );
   }
 
-  renderHeader() {
+  static renderHeader() {
+    const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fi', 'Sa'];
+    const { header } = styles;
+
     return (
-      <div className={styles.header}>
-        {this.days.map((day, i) => (<span key={i}>{day}</span>))}
+      <div className={header}>
+        {days.map((day, i) => (<span key={i}>{day}</span>))}
       </div>
     );
   }
 
   renderButton() {
     const { clearDates } = this.props;
+    const { textButton } = styles;
+
     return (
-      <div onClick={clearDates} className={styles.textButton}>
+      <div onClick={clearDates} className={textButton} role="button">
         Clear Dates
       </div>
     );
@@ -79,6 +85,13 @@ class Calendar extends React.Component {
   renderCalendar() {
     const { month } = this.state;
     const { reservedDates, checkin, checkout } = this.props;
+    const {
+      cell,
+      selectedCell,
+      invalidCell,
+      emptyCell,
+      table,
+    } = styles;
 
     const DAYS_IN_WEEK = 7;
     const firstDayIndex = month.startOf('month').day();
@@ -108,14 +121,14 @@ class Calendar extends React.Component {
       const checkinMoment = moment(checkin, 'MM-DD-YYYY');
       const checkoutMoment = moment(checkout, 'MM-DD-YYYY');
       if (date === '') {
-        return styles.emptyCell;
+        return emptyCell;
       }
       if (
         date in this.invalids
         || month.date(date) < moment()
         || month.date(date) < checkinMoment
       ) {
-        return styles.invalidCell;
+        return invalidCell;
       }
       if (
         (date === checkinMoment.date()
@@ -123,13 +136,13 @@ class Calendar extends React.Component {
         || (date === checkoutMoment.date()
           && month.month() === checkoutMoment.month())
       ) {
-        return styles.selectedCell;
+        return selectedCell;
       }
-      return styles.cell;
+      return cell;
     };
 
     return (
-      <table className={styles.table}>
+      <table className={table}>
         <tbody>
           {calendar.map((week, i) => (
             <tr key={i}>
