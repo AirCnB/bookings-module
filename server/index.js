@@ -7,7 +7,7 @@ const servicePort = 3004;
 
 app.use('/listings/:id', express.static('./public'));
 
-app.get('/listings/:id/bookings', (req, res) => {
+app.get('/api/listings/:id/bookings', (req, res) => {
 
   // callback function to send data to client
   const sendToClient = (data) => {
