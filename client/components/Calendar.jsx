@@ -66,7 +66,11 @@ class Calendar extends Component {
 
     return (
       <div className={header}>
-        {days.map((day, i) => (<span key={i}>{day}</span>))}
+        {days.map((day, i) => (
+          <span key={i}>
+            {day}
+          </span>
+        ))}
       </div>
     );
   }
