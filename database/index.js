@@ -7,7 +7,6 @@ db.on('error', () => {
   console.log('mongo connection error');
 });
 
-// create a schema for the bookings data
 const bookingsSchema = mongoose.Schema({
   id: Number,
   minStay: Number,
@@ -20,12 +19,10 @@ const bookingsSchema = mongoose.Schema({
   reservedDates: [Date],
 });
 
-// create a model for the bookings schema
 const Booking = mongoose.model('Booking', bookingsSchema);
 
-// function to handle get requests
 const getData = (id, callback) => {
-  Booking.findOne({id}, (error, data) => {
+  Booking.findOne({ id }, (error, data) => {
     if (error) {
       console.log(error);
       return;
