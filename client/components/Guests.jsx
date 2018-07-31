@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import GuestsDropdown from './guestsDropdown.jsx';
+import GuestsDropdown from './GuestsDropdown';
 import styles from '../styles/guests.css';
 
-class Guests extends React.Component {
+class Guests extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       showDropdown: false,
       adultCount: 1,
       childrenCount: 0,
-      guestCount: 1,
       infantCount: 0,
     };
+
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.hideDropdown = this.hideDropdown.bind(this);
     this.decrementAdultCount = this.decrementAdultCount.bind(this);
@@ -58,14 +59,23 @@ class Guests extends React.Component {
   }
 
   render() {
-    const { adultCount, childrenCount, guestCount, infantCount, showDropdown } = this.state;
+    const {
+      adultCount,
+      childrenCount,
+      infantCount,
+      showDropdown,
+    } = this.state;
+    const { button, label, dropdown } = styles;
+
     return (
-      <div className={styles.dropdown}>
+      <div className={dropdown}>
         <div id="guests-label">
-          <span className={styles.label}>Guests</span>
+          <span className={label}>
+            Guests
+          </span>
         </div>
-        <button className={styles.button} onClick={this.toggleDropdown} type="button">
-          {adultCount + childrenCount} guest
+        <button className={button} onClick={this.toggleDropdown} type="button">
+          {`${adultCount + childrenCount} guest`}
         </button>
         {showDropdown && (
           <GuestsDropdown
