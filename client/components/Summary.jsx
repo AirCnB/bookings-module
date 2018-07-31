@@ -2,37 +2,47 @@ import React from 'react';
 
 import styles from '../styles/summary.css';
 
-const renderRow = (left, right) => {
+const renderRow = (label, price) => {
+  const { grid, right } = styles;
+
   return (
-    <div className={styles.grid}>
+    <div className={grid}>
       <div>
-        {left}
+        {label}
       </div>
-      <div className={styles.right}>
-        {right}
+      <div className={right}>
+        {price}
       </div>
     </div>
   );
-}
+};
 
-const renderTotal = (total) => {
+const renderTotal = (totalPrice) => {
+  const { total, right } = styles;
+
   return (
-    <div className={styles.total}>
+    <div className={total}>
       <div>
         Total
       </div>
-      <div className={styles.right}>
-        {total}
+      <div className={right}>
+        {totalPrice}
       </div>
     </div>
   );
-}
+};
 
 const Summary = (props) => {
-  const { nightlyRate, cleaningFee, occupancyFee, serviceFee, stayDuration } = props;
+  const {
+    nightlyRate,
+    cleaningFee,
+    occupancyFee,
+    serviceFee,
+    stayDuration
+  } = props;
 
   const nightlyTotal = nightlyRate * stayDuration;
-  const rateText = `$${nightlyRate} x ${stayDuration} nights`
+  const rateText = `$${nightlyRate} x ${stayDuration} nights`;
 
   const total = nightlyTotal + cleaningFee + occupancyFee + serviceFee;
 
