@@ -1,13 +1,14 @@
 # AirCnB Booking Service
 
-> Project description
+![screenshot](./assets/screenshot.png)
+
+> This module allows users to select a checkin and checkout date from a calendar and displays the total cost associated with the stay.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/AirCnB/reviews-module
+  - https://github.com/AirCnB/house-description
+  - https://github.com/AirCnB/photo-carousel
 
 ## Table of Contents
 
@@ -17,7 +18,15 @@
 
 ## Usage
 
-`npm start` to run server on localhost:3004
+`npm install -g webpack`
+
+`npm install`
+
+`mongod` to start MongoDB service
+
+`npm run seed-db` to generate and seed database with data
+
+`npm start` to run nodejs server on localhost:3004
 
 `npm run dev:react` to build with webpack
 

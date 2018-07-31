@@ -8,10 +8,11 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "lint": "eslint . --ext .jsx --ext .js",
     "start": "nodemon server/index.js",
     "dev:react": "webpack",
-    "test": "jest"
+    "lint": "eslint . --ext .jsx --ext .js",
+    "test": "jest",
+    "seed": "node database/dataGenerator.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
