@@ -10,6 +10,18 @@ const {
   label,
 } = styles;
 
+const propTypes = {
+  nightlyRate: PropTypes.number,
+  reviewAverage: PropTypes.number,
+  reviewCount: PropTypes.number,
+};
+
+const defaultProps = {
+  nightlyRate: 0,
+  reviewAverage: 0,
+  reviewCount: 0,
+};
+
 const roundToHalf = num => Math.round(num * 2) / 2;
 
 const renderStars = (reviewAverage = 0) => {
@@ -55,16 +67,7 @@ const Pricing = ({ nightlyRate, reviewAverage, reviewCount }) => (
   </div>
 );
 
-Pricing.defaultProps = {
-  nightlyRate: 0,
-  reviewAverage: 0,
-  reviewCount: 0,
-};
-
-Pricing.propTypes = {
-  nightlyRate: PropTypes.number,
-  reviewAverage: PropTypes.number,
-  reviewCount: PropTypes.number,
-};
+Pricing.defaultProps = defaultProps;
+Pricing.propTypes = propTypes;
 
 export default Pricing;
