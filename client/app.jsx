@@ -15,7 +15,7 @@ class App extends Component {
 
     this.state = {
       bookingData: {},
-      stayDuration: null,
+      stayDuration: 0,
     };
 
     this.updateStayDuration = this.updateStayDuration.bind(this);
