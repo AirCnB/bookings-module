@@ -18,33 +18,19 @@
 
 ## Usage
 
-`npm install -g webpack`
+- `npm install -g webpack`
+- `npm install`
 
-`npm install`
+- `mongod` to start MongoDB service
 
-`mongod` to start MongoDB service
-
-`npm run seed-db` to generate and seed database with data
-
-`npm start` to run nodejs server on localhost:3004
-
-`npm run dev:react` to build with webpack
+- `npm run seed` to generate and seed database with data
+- `npm start` to run nodejs server on localhost:3004
+- `npm run dev:react` to build with webpack
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
+- Mongo
 
