@@ -5,6 +5,15 @@ import moment from 'moment';
 import Calendar from './Calendar';
 import styles from '../styles/dates.css';
 
+const defaultProps = {
+  reservedDates: [],
+};
+
+const propTypes = {
+  reservedDates: PropTypes.arrayOf(PropTypes.string),
+  updateStayDuration: PropTypes.func.isRequired,
+};
+
 class Dates extends Component {
   constructor(props) {
     super(props);
@@ -122,5 +131,8 @@ class Dates extends Component {
     );
   }
 }
+
+Dates.propTypes = propTypes;
+Dates.defaultProps = defaultProps;
 
 export default Dates;

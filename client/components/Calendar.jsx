@@ -7,7 +7,7 @@ import styles from '../styles/calendar.css';
 const propTypes = {
   setDates: PropTypes.func.isRequired,
   clearDates: PropTypes.func.isRequired,
-  reservedDates: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
+  reservedDates: PropTypes.arrayOf(PropTypes.instanceOf(moment)).isRequired,
   checkin: PropTypes.string.isRequired,
   checkout: PropTypes.string.isRequired,
 };
@@ -60,7 +60,7 @@ class Calendar extends Component {
     );
   }
 
-  static renderHeader() {
+  renderHeader() {
     const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fi', 'Sa'];
     const { header } = styles;
 
