@@ -1,6 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from '../styles/guestsDropdown.css';
+
+const propTypes = {
+  adultCount: PropTypes.number.isRequired,
+  decrementAdult: PropTypes.func.isRequired,
+  incrementAdult: PropTypes.func.isRequired,
+  childrenCount: PropTypes.number.isRequired,
+  decrementChild: PropTypes.func.isRequired,
+  incrementChild: PropTypes.func.isRequired,
+  infantCount: PropTypes.number.isRequired,
+  decrementInfant: PropTypes.func.isRequired,
+  incrementInfant: PropTypes.func.isRequired,
+  hideDropdown: PropTypes.func.isRequired,
+};
 
 const renderRow = (titleText, labelText, count, incrementer, decrementer) => {
   const {
@@ -35,15 +49,15 @@ const renderRow = (titleText, labelText, count, incrementer, decrementer) => {
 };
 
 const GuestsDropdown = ({
+  adultCount,
   decrementAdult,
   incrementAdult,
-  adultCount,
-  incrementChild,
-  decrementChild,
   childrenCount,
-  incrementInfant,
-  decrementInfant,
+  decrementChild,
+  incrementChild,
   infantCount,
+  decrementInfant,
+  incrementInfant,
   hideDropdown,
 }) => (
   <div className={styles.wrapper}>
@@ -58,5 +72,7 @@ const GuestsDropdown = ({
     </div>
   </div>
 );
+
+GuestsDropdown.propTypes = propTypes;
 
 export default GuestsDropdown;
