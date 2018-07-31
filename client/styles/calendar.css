@@ -48,9 +48,9 @@
 }
 
 .selectedCell {
+  background-color: #00a699;
   color: white;
   composes: cell;
-  background-color: #00a699;
 }
 
 .selectedCell:hover {
@@ -84,8 +84,8 @@
 }
 
 .header span {
-  display: table-cell;
   color: #757575;
+  display: table-cell;
   font-size: 12px;
   font-weight: 200;
   text-align: center;
