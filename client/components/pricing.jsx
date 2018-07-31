@@ -6,7 +6,6 @@ import styles from '../styles/pricing.css';
 const roundToHalf = num => Math.round(num * 2) / 2;
 
 const renderStars = (reviewAverage = 0) => {
-  let stars = [];
   const TOTAL_STARS = 5;
   const halfRound = roundToHalf(reviewAverage);
 
@@ -14,7 +13,7 @@ const renderStars = (reviewAverage = 0) => {
   const hasHalf = halfRound % 1 !== 0;
   const emptyCount = TOTAL_STARS - filledCount - hasHalf;
 
-  stars = stars.concat(Array(filledCount).fill('star_full.svg'))
+  const stars = Array(filledCount).fill('star_full.svg')
     .concat(Array(+hasHalf).fill('star_half.svg'))
     .concat(Array(emptyCount).fill('star_empty.svg'));
 
