@@ -1,6 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from '../styles/summary.css';
+
+const defaultProps = {
+  nightlyRate: 0,
+  cleaningFee: 0,
+  occupancyFee: 0,
+  serviceFee: 0,
+  stayDuration: 0,
+};
+
+const propTypes = {
+  nightlyRate: PropTypes.number,
+  cleaningFee: PropTypes.number,
+  occupancyFee: PropTypes.number,
+  serviceFee: PropTypes.number,
+  stayDuration: PropTypes.number,
+};
 
 const renderRow = (label, price) => {
   const { grid, right } = styles;
@@ -38,7 +55,7 @@ const Summary = (props) => {
     cleaningFee,
     occupancyFee,
     serviceFee,
-    stayDuration
+    stayDuration,
   } = props;
 
   const nightlyTotal = nightlyRate * stayDuration;
@@ -56,5 +73,8 @@ const Summary = (props) => {
     </div>
   );
 };
+
+Summary.propTypes = propTypes;
+Summary.defaultProps = defaultProps;
 
 export default Summary;
