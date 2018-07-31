@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Calendar from './calendar';
+import Calendar from './Calendar';
 import styles from '../styles/dates.css';
 
-class Dates extends React.Component {
+class Dates extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       showCalendar: false,
       setNext: 'checkin',
       checkin: '',
       checkout: '',
     };
+
     this.showCalendar = this.showCalendar.bind(this);
     this.hideCalendar = this.hideCalendar.bind(this);
     this.setDates = this.setDates.bind(this);
@@ -31,11 +34,12 @@ class Dates extends React.Component {
     this.nextField();
   }
 
-  clearDates() {
-    this.setState({
-      checkin: '',
-      checkout: '',
-    });
+  getDuration(checkout = '08/20/2018') {
+    const { checkin } = this.state;
+
+    const checkinMoment = moment(checkin, 'MM-DD-YYYY');
+    const checkoutMoment = moment(checkout, 'MM-DD-YYYY');
+    return moment.duration(checkoutMoment.diff(checkinMoment)).asDays();
   }
 
   showCalendar() {
@@ -50,15 +54,15 @@ class Dates extends React.Component {
     });
   }
 
-  getDuration(checkout = '08/20/2018') {
-    const { checkin } = this.state;
-    let checkinMoment = moment(checkin, 'MM-DD-YYYY');
-    let checkoutMoment = moment(checkout, 'MM-DD-YYYY');
-    return moment.duration(checkoutMoment.diff(checkinMoment)).asDays();
+  clearDates() {
+    this.setState({
+      checkin: '',
+      checkout: '',
+    });
   }
 
   nextField() {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       if (prevState.setNext === 'checkin') {
         return { setNext: 'checkout' };
       }
@@ -66,12 +70,12 @@ class Dates extends React.Component {
     });
   }
 
-  handleClick(event) {
-    console.log(event.target.name);
-  }
-
   render() {
-    const { showCalendar, checkin, checkout, setNext, clearDates } = this.state;
+    const {
+      showCalendar,
+      checkin,
+      checkout,
+    } = this.state;
     const { reservedDates } = this.props;
 
     const dates = (reservedDates || []).map(date => moment(date));
@@ -79,7 +83,9 @@ class Dates extends React.Component {
     return (
       <div className={styles.container}>
         <div id="dates-label">
-          <span onClick={this.hideCalendar} className={styles.label}>Dates</span>
+          <span onClick={this.hideCalendar} className={styles.label} role="button">
+            Dates
+          </span>
         </div>
         <div className={styles.inputContainer}>
           <div id="checkin-box">
@@ -107,7 +113,6 @@ class Dates extends React.Component {
           <Calendar
             setDates={this.setDates}
             clearDates={this.clearDates}
-            setNext={setNext}
             reservedDates={dates}
             checkin={checkin}
             checkout={checkout}
