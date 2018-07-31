@@ -33,7 +33,8 @@ class App extends React.Component {
         this.setState({
           bookingData: data,
         });
-      });
+      })
+      .catch(error => console.error(error));
   }
 
   updateStayDuration(stayDuration) {
