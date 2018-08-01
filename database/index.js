@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/aircnb');
-const db = mongoose.connection;
+const { connection } = mongoose;
 
-db.on('error', () => {
+connection.on('error', () => {
   console.log('mongo connection error');
 });
 
@@ -24,6 +24,7 @@ const Booking = mongoose.model('Booking', bookingsSchema);
 const getData = id => Booking.findOne({ id });
 
 module.exports = {
+  connection,
   Booking,
   getData,
 };
