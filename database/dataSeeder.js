@@ -22,7 +22,6 @@ const generateRecords = (tsvArr) => {
       obj[headers[j]] = rowArr[j];
     }
 
-    // special logic for the calendar
     obj.reservedDates = JSON.parse(obj.reservedDates);
     const record = new db.Booking(obj);
     records.push(record);
@@ -31,8 +30,7 @@ const generateRecords = (tsvArr) => {
   return records;
 };
 
-// read the tsv file
-fs.readFile('./data.tsv', (err, data) => {
+fs.readFile('./database/data.tsv', (err, data) => {
   if (err) {
     console.log('fs write file error', err);
   }

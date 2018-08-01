@@ -12,7 +12,8 @@
     "dev:react": "webpack",
     "lint": "eslint . --ext .jsx --ext .js",
     "test": "jest",
-    "seed": "node database/dataGenerator.js"
+    "build:data": "node database/dataGenerator",
+    "seed:db": "node database/dataSeeder"
   },
   "dependencies": {
     "axios": "^0.18.0",
