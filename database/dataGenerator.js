@@ -62,6 +62,7 @@ fs.writeFile('data.tsv', createTSV(), (err) => {
   if (err) {
     console.log(err);
   }
+  console.log('data written to data.tsv');
 });
 
 // // build the csv file
