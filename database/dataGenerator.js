@@ -26,7 +26,7 @@ const TSVHeader = () => headers.join('\t');
 
 const TSVRow = (id) => {
   // add id
-  let row = `${id}`;
+  let row = `\n${id}\t`;
 
   // add nightlyRate
   row += getNumInRange(10, 20) * 10 + '\t';
@@ -41,7 +41,7 @@ const TSVRow = (id) => {
   // add reviewAverage
   row += getNumInRange(10, 50) / 10 + '\t';
   // add reservedDates
-  row += `"${JSON.stringify(getCalendar())}"` + '\n';
+  row += `${JSON.stringify(getCalendar())}`;
 
   return row;
 };
