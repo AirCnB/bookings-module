@@ -1,5 +1,5 @@
+/* eslint-disable no-console */
 const express = require('express');
-const path = require('path');
 const db = require('../database/index.js');
 
 const app = express();
@@ -13,6 +13,9 @@ app.get('/api/listings/:id/bookings', (req, res) => {
     .catch(error => res.status(404).send(error));
 });
 
-app.listen(servicePort, () => {
+const server = app.listen(servicePort, () => {
   console.log('Listening to port', servicePort);
 });
+
+module.exports.app = app;
+module.exports.server = server;
