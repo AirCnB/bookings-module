@@ -1,19 +1,40 @@
-const request = require('request');
+const request = require('supertest');
+const express = require('express');
+const { app, server } = require('../server/');
 
-// dummy test to setup CircleCI
-test('adds 1 + 2  to equal 3', () => {
+test('adds 1 + 2', () => {
   expect(1 + 2).toBe(3);
 });
 
-// TODO: refactor to use async/await?
-// test server GET api
-test('responds to GET /api/listings/:id/bookings with a 200 status code', () => {
-  request.get('http://localhost:3004/api/listings/1/bookings')
-    .on('response', (response) => {
+// afterEach((done) => {
+//   server.close(done);
+//   console.log('after done');
+// });
+
+describe('Express static route', () => {
+  test('It should respond to the GET method with a 200 status code', () => {
+    return request(app).get('/listings/1').then(response => {
       expect(response.statusCode).toBe(200);
-    })
-    .on('error', (err) => {
-      console.log(err);
-      expect(err).toBe(200);
     });
+  });
 });
+
+// describe('Test the /api/listings/:id/bookings endpoint', () => {
+//   test('It should respond to the GET method with a 200 status code', (done) => {
+//     request(app)
+//       .get('/api/listings/1/bookings')
+//       .then(response => {
+//         expect(response.statusCode).toBe(200);
+//         done();
+//       });
+//   });
+// });
+
+// describe('Test the /api/listings/:id/bookings endpoint', () => {
+//   test('It should respond to the GET method with a 200 status code', () => {
+//     return request(app).get('/api/listings/1/bookings').then(response => {
+//       expect(response.statusCode).toBe(200);
+//       server.close();
+//     });
+//   });
+// });
