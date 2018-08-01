@@ -4,14 +4,12 @@ const db = require('./index.js');
 // create headers
 const headers = ['id', 'nightlyRate', 'cleaningFee', 'serviceFee', 'occupancyFee', 'reviewCount', 'reviewAverage', 'reservedDates'];
 
-// helper function for generating random data
-const getNumInRange = (lower, upper) => {
-  return Math.floor(Math.random() * (upper - lower)) + lower;
-};
+const getNumInRange = (lower, upper) => Math.floor(Math.random() * (upper - lower)) + lower;
 
 const randomDate = (start, end) => {
   const startTime = start.getTime();
   const endTime = end.getTime();
+
   const randomTime = startTime + ((endTime - startTime) * Math.random());
   return new Date(randomTime);
 };
@@ -19,10 +17,40 @@ const randomDate = (start, end) => {
 const getCalendar = () => {
   const calendar = [];
   for (let i = 0; i < 50; i += 1) {
-    let newDate = randomDate(new Date(), new Date(2019, 1, 15))
+    const newDate = randomDate(new Date(), new Date(2019, 1, 15));
     calendar.push(newDate);
   }
   return calendar.sort((a, b) => a - b);
+};
+
+const TSVHeader = () => headers.join('\t');
+
+const TSVRow = (id) => {
+  // add id
+  let row = `${id}`;
+
+  // add nightlyRate
+  row += getNumInRange(10, 20) * 10 + ',';
+  // add cleaningFee
+  row += getNumInRange(5, 10) * 10 + ',';
+  // add serviceFee
+  row += getNumInRange(10, 20) * 10 + ',';
+  // add occupanyFee
+  row += getNumInRange(10, 20) * 10 + ',';
+  // add reviewCount
+  row += getNumInRange(10, 100) + ',';
+  // add reviewAverage
+  row += getNumInRange(10, 50) / 10 + ',';
+  // add reservedDates
+  row += `"${JSON.stringify(getCalendar())}"` + ',';
+}
+
+const createTSV = () => {
+  // start TSVString with headers
+  let TSVString = TSVHeader();
+
+  // create each row
+
 };
 
 // build the csv file
