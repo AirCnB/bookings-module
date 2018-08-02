@@ -58,7 +58,7 @@ const createTSV = () => {
   return TSVString;
 };
 
-fs.writeFile('data.tsv', createTSV(), (err) => {
+fs.writeFile('./database/data.tsv', createTSV(), (err) => {
   if (err) {
     console.log(err);
   }
