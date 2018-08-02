@@ -26,3 +26,5 @@ dist/
 public/bundle.js
 public/bundle.js.map
 
+# Personal keys
+aws-keys.json
