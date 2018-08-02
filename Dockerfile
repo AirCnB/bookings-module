@@ -6,7 +6,7 @@ WORKDIR /src/app
 
 COPY . /src/app
 
-RUN npm install; 
+RUN npm install; npm seed:db
 
 EXPOSE 3004
 
