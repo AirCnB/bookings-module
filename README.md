@@ -25,7 +25,10 @@
 
 - `npm run seed:db` to seed database with data from `data.tsv`
 - `npm start` to run nodejs server on localhost:3004
+
+## Development
 - `npm run dev:react` to build with webpack
+- `npm serve` to upload files to AWS S3
 
 ## Requirements
 

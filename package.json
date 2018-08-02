@@ -13,7 +13,8 @@
     "lint": "eslint . --ext .jsx --ext .js",
     "test": "jest",
     "build:data": "node database/dataGenerator",
-    "seed:db": "node database/dataSeeder"
+    "seed:db": "node database/dataSeeder",
+    "serve": "grunt deploy"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -37,6 +38,8 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
+    "grunt": "^1.0.3",
+    "grunt-aws-s3": "^2.0.0",
     "jest": "^23.4.1",
     "jest-cli": "^23.4.1",
     "nodemon": "^1.18.3",
