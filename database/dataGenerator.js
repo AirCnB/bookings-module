@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // create headers
-const headers = ['id', 'nightlyRate', 'cleaningFee', 'serviceFee', 'occupancyFee', 'reviewCount', 'reviewAverage', 'reservedDates'];
+const headers = ['id', 'nightlyRate', 'cleaningFee', 'serviceFee', 'occupancyFee', 'reviewCount', 'reviewAverage', 'maxGuests', 'minNights', 'reservedDates'];
 
 const getNumInRange = (lower, upper) => Math.floor(Math.random() * (upper - lower)) + lower;
 
@@ -40,6 +40,10 @@ const TSVRow = (id) => {
   row += getNumInRange(10, 100) + '\t';
   // add reviewAverage
   row += getNumInRange(10, 50) / 10 + '\t';
+  // add maxGuests
+  row += getNumInRange(1, 6) + '\t';
+  // add minNights
+  row += getNumInRange(1, 3) + '\t';
   // add reservedDates
   row += `${JSON.stringify(getCalendar())}`;
 
@@ -60,7 +64,7 @@ const createTSV = () => {
 
 fs.writeFile('./database/data.tsv', createTSV(), (err) => {
   if (err) {
-    console.log(err);
+    console.log('fs write error', err);
   }
   console.log('data written to data.tsv');
 });

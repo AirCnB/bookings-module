@@ -16,6 +16,8 @@ const bookingsSchema = mongoose.Schema({
   occupancyFee: Number,
   reviewCount: Number,
   reviewAverage: Number,
+  maxGuests: Number,
+  minNights: Number,
   reservedDates: [Date],
 });
 
