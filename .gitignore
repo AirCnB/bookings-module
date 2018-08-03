@@ -28,3 +28,4 @@ public/bundle.js.map
 
 # Personal keys
 aws-keys.json
+ec2-key-pair.pem
