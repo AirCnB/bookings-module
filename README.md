@@ -4,6 +4,8 @@
 
 > This module allows users to select a checkin and checkout date from a calendar and displays the total cost associated with the stay.
 
+Demo component @ http://ec2-34-203-218-92.compute-1.amazonaws.com/listings/1/
+
 ## Related Projects
 
   - https://github.com/AirCnB/reviews-module
