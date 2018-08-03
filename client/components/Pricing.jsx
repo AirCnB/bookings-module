@@ -40,7 +40,7 @@ const renderStars = (reviewAverage = 0) => {
     <img
       className={stars}
       alt={`Average rating is ${halfRound}`}
-      src={`./media/${fileName}`}
+      src={`https://s3-us-west-1.amazonaws.com/eb-front-end-capstone/media/${fileName}`}
       key={i}
     />
   ));
