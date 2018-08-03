@@ -18,17 +18,31 @@
 
 ## Usage
 
+### Docker (recommended)
+
+This module is containerized with Docker. To use with Docker:
+- `docker-compose up -d`
+
+The component will be hosted on `localhost:3004`.
+
+### Manually
+
+Otherwise, the module can also be started up manually with webpack and a running MongoDB:
+
 - `npm install -g webpack`
 - `npm install`
 
-- `mongod` to start MongoDB service
+- `mongod`
 
-- `npm run seed:db` to seed database with data from `data.tsv`
-- `npm start` to run nodejs server on localhost:3004
+- `npm run seed:db`
+- `npm start`
+
+And the module will be hosted on `localhost:3004`.
 
 ## Development
-- `npm run dev:react` to build with webpack
-- `npm serve` to upload files to AWS S3
+
+- `npm run dev:react` to build with webpack.
+- `npm serve` to deploy files to AWS S3.
 
 ## Requirements
 
