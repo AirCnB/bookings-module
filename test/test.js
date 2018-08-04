@@ -1,22 +1,19 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
+
 import App from '../client/app';
+import Pricing from '../client/components/Pricing';
+import Dates from '../client/components/Dates';
+import Guests from '../client/components/Guests';
+import Summary from '../client/components/Summary';
+import BookingButton from '../client/components/BookingButton';
 
 const request = require('supertest');
 const express = require('express');
 const { app, server } = require('../server/');
 
-// const app = express();
-// const server = app.listen('3004');
-
 afterAll(() => {
   server.close();
-});
-
-describe('dummy test', () => {
-  test('It should do simple math', () => {
-    expect(1 + 2).toBe(3);
-  });
 });
 
 describe('Test GET API', () => {
@@ -28,8 +25,24 @@ describe('Test GET API', () => {
 });
 
 describe('Enzyme tests on React components', () => {
-  test('It should render wtihout throwing an error', () => {
-    expect(shallow(<App />).contains(<div></div>)).toBe(true);
+  test('It should render all React components without throwing an error', () => {
+    expect(shallow(<App />).contains(<Pricing />)).toBe(true);
+  });
+
+  test('It should render the Dates component without throwing an error', () => {
+    expect(shallow(<App />).contains(<Dates />)).toBe(true);
+  });
+
+  test('It should render the Guests component without throwing an error', () => {
+    expect(shallow(<App />).contains(<Guests />)).toBe(true);
+  });
+
+  test('It should render the Summary component without throwing an error', () => {
+    expect(shallow(<App />).contains(<Summary />)).toBe(true);
+  });
+
+  test('It should render the BookingButton component without throwing an error', () => {
+    expect(shallow(<App />).contains(<BookingButton />)).toBe(true);
   });
 });
 
