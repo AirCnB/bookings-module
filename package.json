@@ -4,6 +4,14 @@
   "description": "",
   "author": "",
   "license": "",
+  "jest": {
+    "testURL": "http://localhost",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js"
+  },
   "engines": {
     "node": ">=6.13.0"
   },
@@ -18,7 +26,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -33,6 +40,10 @@
     "request": "^2.87.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
@@ -41,11 +52,13 @@
     "eslint-plugin-react": "^7.10.0",
     "grunt": "^1.0.3",
     "grunt-aws-s3": "^2.0.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.4.1",
     "jest-cli": "^23.4.1",
     "nodemon": "^1.18.3",
+    "regenerator-runtime": "^0.12.1",
+    "supertest": "^3.1.0",
     "webpack": "^4.16.3",
-    "webpack-cli": "^3.1.0",
-    "supertest": "^3.1.0"
+    "webpack-cli": "^3.1.0"
   }
 }

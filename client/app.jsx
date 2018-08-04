@@ -28,7 +28,7 @@ class App extends Component {
   getBookingData() {
     const url = window.location.pathname;
     const REGEX_CAPTURE_NUM = /\/(\d*)\//;
-    const listingId = url.match(REGEX_CAPTURE_NUM)[1];
+    const listingId = (url.match(REGEX_CAPTURE_NUM) || [0, 0])[1];
     const apiEndpoint = `/api/listings/${listingId}/bookings`;
 
     axios.get(apiEndpoint)
