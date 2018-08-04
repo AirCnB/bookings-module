@@ -20,7 +20,7 @@
   width: 110px;
 }
 
-input:focus{
+.inputBox:focus{
   background-color: rgb(153, 237, 230);
   outline: none;
 }
