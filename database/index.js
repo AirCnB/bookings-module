@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://database/aircnb');
+mongoose.connect('mongodb://localhost/aircnb');
 const { connection } = mongoose;
 
-connection.on('error', () => {
-  console.log('mongo connection error');
+connection.on('error', (error) => {
+  console.log('mongo connection error', error);
 });
 
 const bookingsSchema = mongoose.Schema({
