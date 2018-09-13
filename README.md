@@ -23,7 +23,9 @@ Demo component @ http://ec2-34-203-218-92.compute-1.amazonaws.com/listings/1/
 ### Docker (recommended)
 
 This module is containerized with Docker. To use with Docker:
-- `docker-compose up -d`
+```
+docker-compose up -d
+```
 
 The component will be hosted on `localhost:3004`.
 
@@ -31,19 +33,21 @@ The component will be hosted on `localhost:3004`.
 
 Otherwise, the module can also be started up manually with webpack and a running MongoDB:
 
-- `npm install -g webpack`
-- `npm install`
+```
+npm install -g webpack
+npm install
 
-- `mongod`
+mongod
 
-- `npm run seed:db`
-- `npm start`
+npm run seed:db
+npm start
+```
 
-And the module will be hosted on `localhost:3004`.
+The module will be hosted on `localhost:3004`. Example usage: `localhost:3004/listings/1`.
 
 ## Development
 
-- `npm run dev:react` to build with webpack.
+- `npm run dev:react` to build with webpack (in watch mode).
 - `npm serve` to deploy files to AWS S3.
 
 ## Requirements
