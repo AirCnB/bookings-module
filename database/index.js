@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
+const { connection } = mongoose;
 
 mongoose.connect('mongodb://localhost/aircnb');
-const { connection } = mongoose;
 
 connection.on('error', (error) => {
   console.log('mongo connection error', error);

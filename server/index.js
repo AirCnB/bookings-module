@@ -17,5 +17,7 @@ const server = app.listen(servicePort, () => {
   console.log('Listening to port', servicePort);
 });
 
-module.exports.app = app;
-module.exports.server = server;
+module.exports = {
+  app,
+  server,
+};
