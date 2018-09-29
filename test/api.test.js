@@ -7,4 +7,10 @@ describe('Test GET API', () => {
       expect(response.statusCode).toBe(200);
     });
   });
+
+  test('It should respond to GET /api/listings/200/bookings with a 404 statusCode', () => {
+    return request(app).get('/api/listings/200/bookings').then(response => {
+      expect(response.statusCode).toBe(404);
+    });
+  });
 });

@@ -8,7 +8,10 @@ app.use('/listings/:id', express.static('./public'));
 
 app.get('/api/listings/:id/bookings', (req, res) => {
   db.getData(req.params.id)
-    .then(data => res.status(200).send(data))
+    .then((data) => {
+      if (!data) throw new Error();
+      res.status(200).send(data);
+    })
     .catch(error => res.status(404).send(error));
 });
 
