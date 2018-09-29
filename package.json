@@ -16,7 +16,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "nodemon server/app.js",
     "dev:react": "webpack",
     "lint": "eslint . --ext .jsx --ext .js",
     "build:data": "node database/dataGenerator",

@@ -1,10 +1,5 @@
 const request = require('supertest');
-const express = require('express');
-const { app, server } = require('../server/');
-
-afterAll(() => {
-  server.close();
-});
+const app = require('../server/index.js');
 
 describe('Test GET API', () => {
   test('It should respond to GET /api/listings/0/bookings with a 200 statusCode', () => {
